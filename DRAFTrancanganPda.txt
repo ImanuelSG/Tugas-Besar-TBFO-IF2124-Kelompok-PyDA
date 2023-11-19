@@ -1,0 +1,35 @@
+LINK, id, <link>, LINK1, <link>
+LINK, class, <link>, LINK2, <link>
+LINK, style, <link>, LINK3, <link>
+LINK, 
+LINK, \>, <link>,XLINK,e
+
+
+LINK1, class, <link>, LINK12, <link>
+LINK1, style, <link>, LINK13, <link>
+LINK12, style, <link>, LINK123, <link>
+LINK12, >, <link>, XLINK, <link>
+LINK13, class, <link>, LINK132, <link>
+LINK13, >, <link>, XLINK, <link>
+LINK123, >, <link>, XLINK, <link>
+LINK132, ><link>, XLINK, <link>
+
+LINK2, id, <link>, LINK21, <link>
+LINK2, style, <link>, LINK23, <link>
+LINK2, >, <link>, XLINK, <link>
+LINK21, style, <link>, LINK213, <link>
+LINK21, >, <link>, XLINK, <link>
+LINK23, id, <link>, LINK231, <link>
+LINK23, >, <link>, XLINK, <link>
+LINK213, >, <link>, XLINK, <link>
+LINK231, >, <link>, XLINK, <link>
+
+LINK3, id, <link>, LINK31, <link>
+LINK3, class, <link>, LINK32, <link>
+LINK3, >, <link>, XLINK, <link>
+LINK31, class, <link>, LINK312, <link>
+LINK31, >, <link>, XLINK, <link>
+LINK32, id, <link>, LINK321, <link>
+LINK32, >, <link>, XLINK, <link>
+LINK312, >, <link>, XLINK, <link>
+LINK321, >, <link>, XLINK, <link>
