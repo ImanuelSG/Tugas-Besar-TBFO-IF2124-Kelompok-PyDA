@@ -36,7 +36,13 @@ XSCRIPT cscript <script HEAD e
 
 LINK rel <link> REL <link>
 LINK href <link> LINK <link>
+LINK id <link> LINK <link>
+LINK class <link> LINK <link>
+LINK style <link> LINK <link>
 REL href <link> REL <link>
+REL id <link> REL <link>
+REL class <link> REL <link>
+REL style <link> REL <link>
 REL > <link> XLINK DIV e
 REL > <link> XLINK BODY e
 REL > <link> XLINK HEAD e
@@ -58,30 +64,144 @@ XBODY h4 <body> H4 <body>
 XBODY h5 <body> H5 <body>
 XBODY h6 <body> H6 <body>
 XBODY p <body> P <body>
-XBODY br <body> BR <body>
+XBODY br <body> BR <br><body>
 XBODY em <body> EM <body>
 XBODY b <body> B <body>
 XBODY abbr <body> ABBR <body>
 XBODY strong <body> STRONG <body>
 XBODY small <body> SMALL <body>
-XBODY hr <body> HR <body>
+XBODY hr <body> HR <hr><body>
 XBODY div <body> DIV <body>
 XBODY a <body> A <body>
-XBODY img <body> IMG <body>
+XBODY img <body> IMG <img><body>
 XBODY button <body> BUTTON <body>
 XBODY form <body> FORM <body>
-XBODY input <body> INPUT <body>
+XBODY input <body> INPUT <input><body>
 XBODY table <body> TABLE <body>
 
+H1 id <%> H1 <%>
+H1 class <%> H1 <%>
+H1 style <%> STYLE <%>
+H1 > <%> XH1 <h1><%>
+
+XH1 string <h1> XH1 <h1>
+XH1 br <h1> BR <br><h1>
+XH1 em <h1> EM <h1>
+XH1 b <h1> B <h1>
+XH1 abbr <h1> ABBR <h1>
+XH1 strong <h1> STRONG <h1>
+XH1 small <h1> SMALL <h1>
+XH1 a <h1> A <h1>
+XH1 img <h1> IMG <img><h1>
+XH1 ch1 <h1> BODY e
+XH1 ch1 <h1> DIV e
+
+H2 id <%> H2 <%>
+H2 class <%> H2 <%>
+H2 style <%> STYLE <%>
+H2 > <%> XH2 <h2><%>
+
+XH2 string <h2> XH2 <h2>
+XH2 br <h2> BR <br><h2>
+XH2 em <h2> EM <h2>
+XH2 b <h2> B <h2>
+XH2 abbr <h2> ABBR <h2>
+XH2 strong <h2> STRONG <h2>
+XH2 small <h2> SMALL <h2>
+XH2 a <h2> A <h2>
+XH2 img <h2> IMG <img><h2>
+XH2 ch2 <h2> BODY e
+XH2 ch2 <h2> DIV e
+
+H3 id <%> H3 <%>
+H3 class <%> H3 <%>
+H3 style <%> STYLE <%>
+H3 > <%> XH3 <h3><%>
+
+XH3 string <h3> XH3 <h3>
+XH3 br <h3> BR <br><h3>
+XH3 em <h3> EM <h3>
+XH3 b <h3> B <h3>
+XH3 abbr <h3> ABBR <h3>
+XH3 strong <h3> STRONG <h3>
+XH3 small <h3> SMALL <h3>
+XH3 a <h3> A <h3>
+XH3 img <h3> IMG <img><h3>
+XH3 ch3 <h3> BODY e
+XH3 ch3 <h3> DIV e
+
+H4 id <%> H4 <%>
+H4 class <%> H4 <%>
+H4 style <%> STYLE <%>
+H4 > <%> XH4 <h4><%>
+
+XH4 string <h4> XH4 <h4>
+XH4 br <h4> BR <br><h4>
+XH4 em <h4> EM <h4>
+XH4 b <h4> B <h4>
+XH4 abbr <h4> ABBR <h4>
+XH4 strong <h4> STRONG <h4>
+XH4 small <h4> SMALL <h4>
+XH4 a <h4> A <h4>
+XH4 img <h4> IMG <img><h4>
+XH4 ch4 <h4> BODY e
+XH4 ch4 <h4> DIV e
+
+H5 id <%> H5 <%>
+H5 class <%> H5 <%>
+H5 style <%> STYLE <%>
+H5 > <%> XH5 <h5><%>
+
+XH5 string <h5> XH5 <h5>
+XH5 br <h5> BR <br><h5>
+XH5 em <h5> EM <h5>
+XH5 b <h5> B <h5>
+XH5 abbr <h5> ABBR <h5>
+XH5 strong <h5> STRONG <h5>
+XH5 small <h5> SMALL <h5>
+XH5 a <h5> A <h5>
+XH5 img <h5> IMG <img><h5>
+XH5 ch5 <h5> BODY e
+XH5 ch5 <h5> DIV e
+
+H6 id <%> H6 <%>
+H6 class <%> H6 <%>
+H6 style <%> STYLE <%>
+H6 > <%> XH6 <h6><%>
+
+XH6 string <h6> XH6 <h6>
+XH6 br <h6> BR <br><h6>
+XH6 em <h6> EM <h6>
+XH6 b <h6> B <h6>
+XH6 abbr <h6> ABBR <h6>
+XH6 strong <h6> STRONG <h6>
+XH6 small <h6> SMALL <h6>
+XH6 a <h6> A <h6>
+XH6 img <h6> IMG <img><h6>
+XH6 ch6 <h6> BODY e
+XH6 ch6 <h6> DIV e
+
+P id <%> P <%>
+P class <%> P <%>
+P style <%> STYLE <%>
+P > <%> XP <p><%>
+
+XP string <p> XP <p>
+XP br <p> BR <br><p>
+XP em <p> EM <p>
+XP b <p> B <p>
+XP abbr <p> ABBR <p>
+XP strong <p> STRONG <p>
+XP small <p> SMALL <p>
+XP a <p> A <p>
+XP img <p> IMG <img><p>
+XP ch6 <p> BODY e
+XP ch6 <p> DIV e
+
+BR id <br> BR <br>
+BR class <br> BR <br>
 
 
-
-
-
-
-
-
- 
 
 
 
