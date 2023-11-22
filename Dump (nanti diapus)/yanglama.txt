@@ -8,6 +8,8 @@ F
 INIT html e HTML Z0
 HTML > Z0 XHTML <html>
 XHTML head <html> HEAD <html>
+
+
 HEAD id <html> HEAD1 <html>
 HEAD class <html> HEAD2 <html>
 HEAD style <html> HEAD3 <html>
@@ -70,6 +72,6 @@ TITLE31 > <head> XTITLE <title>
 TITLE32 id <head> TITLE321 <head>
 TITLE32 > <head> XTITLE <title>
 TITLE312 > <head> XTITLE <title>
-TITLE321 > <head> XTITLE <title>
+
 XTITLE isi <title> CTITLE <title>
 CTITLE cTitle <title> CHEAD e

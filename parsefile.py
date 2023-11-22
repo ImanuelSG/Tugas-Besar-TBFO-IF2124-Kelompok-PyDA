@@ -15,8 +15,15 @@ def extract_stack_symbols(productions):
             take_from_stack = transition[1]
             if take_from_stack.startswith('<') and take_from_stack.endswith('>'):
                 stack_symbols.add(take_from_stack)
-
     return stack_symbols
+
+def extract_states(productions):
+    states = set()
+    for state, transitions in productions.items():
+        states.add(state)
+
+
+    return states
 
 def parse_file(filename):
     global productions
@@ -45,7 +52,6 @@ def parse_file(filename):
     # Add production rules
     for line in lines[7:]:
         parts = line.split()
-        print (parts)
         current_state, read_symbol, take_stack, next_state, add_stack = parts
         production = (read_symbol, take_stack, next_state, add_stack)
 
@@ -56,8 +62,9 @@ def parse_file(filename):
 
     extracted_input_symbols = extract_input_symbols(productions)
     extracted_stack_symbols = extract_stack_symbols(productions)
-    # Print parsed information
-    print("Total States:", total_states)
+    extracted_states = extract_states(productions)
+    
+    print("Total States:", extracted_states)
     print("Input Word Symbols:", extracted_input_symbols)
     print("Stack Symbols:", extracted_stack_symbols)
     print("Starting State:", start_state)
@@ -72,5 +79,5 @@ def parse_file(filename):
     return 1
 
 # Example usage
-filename = "PDA.txt"
+filename = "table.txt"
 parse_file(filename)

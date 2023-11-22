@@ -21,7 +21,6 @@ def tokenize_html(input_str):
     row_count = 1  # Initialize row counter
 
     while input_str:
-        
         tag_match = tag_pattern.match(input_str)
         if tag_match:
             tag = tag_match.group(1)
@@ -30,7 +29,18 @@ def tokenize_html(input_str):
         elif attribute_pattern.match(input_str):
             attribute_match = attribute_pattern.match(input_str)
             key = attribute_match.group(1)
-            tokens.append(key)
+            value = attribute_match.group(2)
+            if key == "method":
+                method_value = value.strip('"').strip()
+                tokens.append("method" + method_value)
+            elif key == "action":
+                action_value = value.strip('"').strip()
+                tokens.append("action" + action_value)
+            elif key == "type":
+                type_value = value.strip('"').strip()
+                tokens.append("type" + type_value)
+            else:
+                tokens.append(key)
             input_str = input_str[attribute_match.end():]
         elif closetag_pattern.match(input_str):
             closetag_match = closetag_pattern.match(input_str)
@@ -52,9 +62,8 @@ def tokenize_html(input_str):
         elif blank.match(input_str):
             input_str = input_str[1:]
         else:
-            string_match = re.match(r'([^<>]+)', input_str)
+            string_match = re.match(r'([^<>]+|\s+)', input_str)
             if string_match:
-                print(string_match)
                 tokens.append("string")
                 input_str = input_str[string_match.end():]
             else:
@@ -64,10 +73,4 @@ def tokenize_html(input_str):
                     tokens.append("nl")
                     row_count += 1  # Increment row counter for each newline
                 input_str = input_str[1:]
-
-    print("Number of rows:", row_count)
     return tokens
-
-# Example usage with a file
-file_path = 'tes.html'
-tokens = tokenize_html_from_file(file_path)

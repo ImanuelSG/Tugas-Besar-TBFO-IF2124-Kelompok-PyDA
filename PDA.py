@@ -1,28 +1,15 @@
+from tokenizer import *
+
 class PDA:
     def __init__(self, states, input_alphabet, stack_alphabet, initial_state, initial_stack, accepting_states, accepting_type, transitions):
         self.states = set(states)
         self.input_alphabet = set(input_alphabet)
         self.stack_alphabet = set(stack_alphabet)
         self.initial_state = initial_state
-        self.initial_stack = initial_stack  # Corrected typo here
+        self.initial_stack = initial_stack  
         self.accepting_states = set(accepting_states)
         self.accepting_type = accepting_type
         self.transitions = transitions
-
-    def simulate(self, input_string):
-        stack = [self.initial_stack]  # Updated to use initial_stack from the instance
-        current_state = self.initial_state
-
-        for symbol in input_string:
-            if (current_state, symbol, stack[-1]) in self.transitions:
-                next_state, push_stack = self.transitions[(current_state, symbol, stack[-1])]
-                stack.pop()
-                stack.extend(reversed(push_stack))
-                current_state = next_state
-            else:
-                return False
-
-        return current_state in self.accepting_states and not stack
 
     def __str__(self):
         return (
@@ -36,31 +23,50 @@ class PDA:
             f"Transitions: {self.transitions}\n"
         )
 
+    def simulate(self, input_string):
+        stack = [self.initial_stack]  
+        current_state = self.initial_state
+        rowrightnow = 1
+        
+        for symbol in input_string:
+            if symbol == "nl":
+                rowrightnow += 1
+            elif (current_state, symbol, stack[-1]) in self.transitions:
+                next_state, push_stack = self.transitions[(current_state, symbol, stack[-1])][0]
+                stack.pop()
+                if push_stack != "e":
+                    if push_stack.startswith('<') and push_stack.endswith('>'):
+                        push_stack = push_stack[1:-1]  # Remove the angle brackets
+                        substrings = push_stack.split('><')
+                        for substring in reversed(substrings):
+                            stack.append('<' + substring + '>')
+                    else:
+                        stack.append(push_stack)
+                current_state = next_state
+            else:
+                print(f"Error: No transition for state {current_state}, symbol {symbol}, stack {stack[-1]} at row {rowrightnow}")
+                return False
+        print (stack)
+        print (rowrightnow)
+        return current_state in self.accepting_states and not stack
 
-def extract_states(productions):
+
+def extract_states(productions): #ini cuma buat mastiin apakah states yang ditulis di txt udah semua
     states = set()
     for state, transitions in productions.items():
         states.add(state)
-
-        for transition in transitions:
-            next_state = transition[3]
-            if next_state not in states:
-                states.add(next_state)
-
     return states
 
-def extract_input_symbols(productions):
+def extract_input_symbols(productions): #ini cuma buat mastiin apakah input simbol yang ditulis di txt udah semua
     input_symbols = set()
     for state, transitions in productions.items():
         for transition in transitions:
             read_symbol = transition[0]
             if read_symbol not in input_symbols:
                 input_symbols.add(read_symbol)
-
     return input_symbols
 
-
-def extract_stack_symbols(productions):
+def extract_stack_symbols(productions): #ini cuma buat mastiin apakah stack symbol yang ditulis di txt udah semua
     stack_symbols = set()
     for state, transitions in productions.items():
         for transition in transitions:
@@ -70,7 +76,6 @@ def extract_stack_symbols(productions):
 
     return stack_symbols
 
-
 def parse_file(filename):
     global productions
     global start_state
@@ -79,7 +84,7 @@ def parse_file(filename):
     global start_stack
     global accepting_states
     global accept_condition
-
+    global pda
     try:
         with open(filename, 'r') as file:
             lines = file.readlines()
@@ -87,27 +92,25 @@ def parse_file(filename):
     except FileNotFoundError:
         print(f"Error: File '{filename}' not found.")
         return None
-
     total_states, input_symbols, stack_symbols = map(str.split, lines[:3])
     start_state, start_stack, accepting_states, accept_condition = map(str.strip, lines[3:7])
-
     productions = {}
 
     for line in lines[7:]:
         parts = line.split()
         current_state, read_symbol, take_stack, next_state, add_stack = parts
-        production = (read_symbol, take_stack, next_state, add_stack)
+        production = (next_state, add_stack)
 
-        if current_state not in productions:
-            productions[current_state] = []
+        key = (current_state, read_symbol, take_stack)  # Ini biar formatnya lebih enak
 
-        productions[current_state].append(production)
+        if key not in productions:
+            productions[key] = []
+        productions[key].append(tuple(production))
 
     extracted_input_symbols = extract_input_symbols(productions)
     extracted_stack_symbols = extract_stack_symbols(productions)
     extracted_states = extract_states(productions)
 
-    
     pda = PDA(
         states=extracted_states,
         input_alphabet=extracted_input_symbols,
@@ -117,9 +120,11 @@ def parse_file(filename):
         transitions=productions,
         initial_stack=start_stack,
         accepting_type=accept_condition
-
     )
 
-
-filename = "PDA.txt"
+filename = "table.txt"
 parse_file(filename)
+tokens = tokenize_html_from_file("Test//table.html")
+print (tokens)
+PDA.simulate(pda, tokens)
+
