@@ -1,0 +1,93 @@
+INIT html e HTML zo
+HTML > zo XHTML <html>
+HTML id zo HTML zo
+HTML class zo HTML zo
+HTML style zo HTML zo
+XHTML head <html> HEAD <html>
+
+HEAD id <html> HEAD <html>
+HEAD class <html> HEAD <html>
+HEAD style <html> HEAD <html>
+HEAD > <html> XHEAD <head><html>
+
+XHEAD title <head> TITLE <head>
+XHEAD script <head> SCRIPT <head>
+XHEAD link  <head> LINK <link><head>
+
+TITLE id <head> TITLE <head>
+TITLE class <head> TITLE <head>
+TITLE style <head> TITLE <head>
+TITLE > <head> XTITLE <title><head>
+
+XTITLE string <title> XTITLE <title>
+XTITLE e <title> XTITLE <title>
+XTITLE ctitle <title> HEAD e
+
+SCRIPT id <%> SCRIPT <%>
+SCRIPT class <%> SCRIPT <%>
+SCRIPT style <%> SCRIPT <%>
+SCRIPT src <%> SRC <%>
+SRC > <%> XSCRIPT <script><%>
+
+XSCRIPT string <script> XSCRIPT  <title>
+XSCRIPT cscript <script> DIV e
+XSCRIPT cscript <script> BODY e
+XSCRIPT cscript <script HEAD e
+
+LINK rel <link> REL <link>
+LINK href <link> LINK <link>
+REL href <link> REL <link>
+REL > <link> XLINK DIV e
+REL > <link> XLINK BODY e
+REL > <link> XLINK HEAD e
+
+XHEAD chead <head> CHEAD e
+CHEAD body <html> BODY <html>
+
+BODY id <html> BODY <html>
+BODY class <html> BODY <html>
+BODY style <html> BODY <html>
+BODY > <html> XBODY <body><html>
+
+XBODY link <body> LINK <link><body>
+XBODY script <body> SCRIPT <body>
+XBODY h1 <body> H1 <body>
+XBODY h2 <body> H2 <body>
+XBODY h3 <body> H3 <body>
+XBODY h4 <body> H4 <body>
+XBODY h5 <body> H5 <body>
+XBODY h6 <body> H6 <body>
+XBODY p <body> P <body>
+XBODY br <body> BR <body>
+XBODY em <body> EM <body>
+XBODY b <body> B <body>
+XBODY abbr <body> ABBR <body>
+XBODY strong <body> STRONG <body>
+XBODY small <body> SMALL <body>
+XBODY hr <body> HR <body>
+XBODY div <body> DIV <body>
+XBODY a <body> A <body>
+XBODY img <body> IMG <body>
+XBODY button <body> BUTTON <body>
+XBODY form <body> FORM <body>
+XBODY input <body> INPUT <body>
+XBODY table <body> TABLE <body>
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
