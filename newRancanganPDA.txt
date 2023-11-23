@@ -91,7 +91,8 @@ XBODY table <body> TABLE <body>
 XBODY cbody <body> CBODY e
 
 CBODY chtml <html> CHTML e
-CHTML e <zo> CHTML e 
+CHTML e <zo> FINAL e 
+
 
 H1 id <%> H1 <%>
 H1 class <%> H1 <%>
