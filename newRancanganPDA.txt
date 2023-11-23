@@ -81,7 +81,7 @@ XBODY table <body> TABLE <body>
 
 H1 id <%> H1 <%>
 H1 class <%> H1 <%>
-H1 style <%> STYLE <%>
+H1 style <%> H1 <%>
 H1 > <%> XH1 <h1><%>
 
 XH1 string <h1> XH1 <h1>
@@ -93,12 +93,12 @@ XH1 strong <h1> STRONG <h1>
 XH1 small <h1> SMALL <h1>
 XH1 a <h1> A <h1>
 XH1 img <h1> IMG <img><h1>
-XH1 ch1 <h1> BODY e
-XH1 ch1 <h1> DIV e
+XH1 ch1 <h1> XBODY e
+XH1 ch1 <h1> XDIV e
 
 H2 id <%> H2 <%>
 H2 class <%> H2 <%>
-H2 style <%> STYLE <%>
+H2 style <%> H2 <%>
 H2 > <%> XH2 <h2><%>
 
 XH2 string <h2> XH2 <h2>
@@ -110,12 +110,12 @@ XH2 strong <h2> STRONG <h2>
 XH2 small <h2> SMALL <h2>
 XH2 a <h2> A <h2>
 XH2 img <h2> IMG <img><h2>
-XH2 ch2 <h2> BODY e
-XH2 ch2 <h2> DIV e
+XH2 ch2 <h2> XBODY e
+XH2 ch2 <h2> XDIV e
 
 H3 id <%> H3 <%>
 H3 class <%> H3 <%>
-H3 style <%> STYLE <%>
+H3 style <%> H3 <%>
 H3 > <%> XH3 <h3><%>
 
 XH3 string <h3> XH3 <h3>
@@ -127,12 +127,12 @@ XH3 strong <h3> STRONG <h3>
 XH3 small <h3> SMALL <h3>
 XH3 a <h3> A <h3>
 XH3 img <h3> IMG <img><h3>
-XH3 ch3 <h3> BODY e
-XH3 ch3 <h3> DIV e
+XH3 ch3 <h3> XBODY e
+XH3 ch3 <h3> XDIV e
 
 H4 id <%> H4 <%>
 H4 class <%> H4 <%>
-H4 style <%> STYLE <%>
+H4 style <%> H4 <%>
 H4 > <%> XH4 <h4><%>
 
 XH4 string <h4> XH4 <h4>
@@ -144,12 +144,12 @@ XH4 strong <h4> STRONG <h4>
 XH4 small <h4> SMALL <h4>
 XH4 a <h4> A <h4>
 XH4 img <h4> IMG <img><h4>
-XH4 ch4 <h4> BODY e
-XH4 ch4 <h4> DIV e
+XH4 ch4 <h4> XBODY e
+XH4 ch4 <h4> XDIV e
 
 H5 id <%> H5 <%>
 H5 class <%> H5 <%>
-H5 style <%> STYLE <%>
+H5 style <%> H5 <%>
 H5 > <%> XH5 <h5><%>
 
 XH5 string <h5> XH5 <h5>
@@ -161,12 +161,12 @@ XH5 strong <h5> STRONG <h5>
 XH5 small <h5> SMALL <h5>
 XH5 a <h5> A <h5>
 XH5 img <h5> IMG <img><h5>
-XH5 ch5 <h5> BODY e
-XH5 ch5 <h5> DIV e
+XH5 ch5 <h5> XBODY e
+XH5 ch5 <h5> XDIV e
 
 H6 id <%> H6 <%>
 H6 class <%> H6 <%>
-H6 style <%> STYLE <%>
+H6 style <%> H6 <%>
 H6 > <%> XH6 <h6><%>
 
 XH6 string <h6> XH6 <h6>
@@ -178,12 +178,12 @@ XH6 strong <h6> STRONG <h6>
 XH6 small <h6> SMALL <h6>
 XH6 a <h6> A <h6>
 XH6 img <h6> IMG <img><h6>
-XH6 ch6 <h6> BODY e
-XH6 ch6 <h6> DIV e
+XH6 ch6 <h6> XBODY e
+XH6 ch6 <h6> XDIV e
 
 P id <%> P <%>
 P class <%> P <%>
-P style <%> STYLE <%>
+P style <%> P <%>
 P > <%> XP <p><%>
 
 XP string <p> XP <p>
@@ -195,11 +195,65 @@ XP strong <p> STRONG <p>
 XP small <p> SMALL <p>
 XP a <p> A <p>
 XP img <p> IMG <img><p>
-XP ch6 <p> BODY e
-XP ch6 <p> DIV e
+XP ch6 <p> XBODY e
+XP ch6 <p> XDIV e
 
-BR id <br> BR <br>
-BR class <br> BR <br>
+BR > <br> XH1 e
+BR > <br> XH2 e
+BR > <br> XH3 e
+BR > <br> XH4 e
+BR > <br> XH5 e
+BR > <br> XH6 e
+BR > <br> XP e
+BR > <br> XBODY e
+BR > <br> XDIV e
+
+EM > <%> XEM <em><%>
+
+XEM string <em> XEM <em>
+XEM cem <em> XH1 e
+XEM cem <em> XH2 e
+XEM cem <em> XH3 e
+XEM cem <em> XH4 e
+XEM cem <em> XH5 e
+XEM cem <em> XH6 e
+XEM cem <em> XP e
+XEM cem <em> XTH e
+XEM cem <em> XTD e
+XEM cem <em> XBODY e
+XEM cem <em> XDIV e
+
+B > <%> XB <b><%>
+
+XB string <b> XB <b>
+XB cb <b> XH1 e
+XB cb <b> XH2 e
+XB cb <b> XH3 e
+XB cb <b> XH4 e
+XB cb <b> XH5 e
+XB cb <b> XH6 e
+XB cb <b> XP e
+XB cb <b> XTH e
+XB CB <b> XTD e
+XB cb <b> XBODY e
+XB cb <b> XDIV e
+
+ABBR > <%> XABBR <abbr><%>
+
+XABBR string <abbr> XABBR <abbr>
+XABBR cabbr <abbr> XH1 e
+XABBR cabbr <abbr> XH2 e
+XABBR cabbr <abbr> XH3 e
+XABBR cabbr <abbr> XH4 e
+XABBR cabbr <abbr> XH5 e
+XABBR cabbr <abbr> XH6 e
+XABBR cabbr <abbr> XP e
+XABBR cabbr <abbr> XTH e
+XABBR cabbr <abbr> XTD e
+XABBR cabbr <abbr> XBODY e
+XABBR cabbr <abbr> XDIV e
+
+
 
 
 

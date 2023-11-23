@@ -1,0 +1,28 @@
+TABLE id <%> TABLE <%>
+TABLE class <%> TABLE <%>
+TABLE style <%> TABLE <%>
+TABLE > <%> XTABLE <table><%>
+XTABLE tr <table> TR <table>
+XTABLE ctable <table> XBODY e
+XTABLE ctable <table> XDIV e
+
+
+TR id <table> TR <table>
+TR class <table> TR <table>
+TR style <table> TR <table>
+TR > <table> XTR <tr><table>
+
+XTR th <tr> TH <tr>
+XTR td <tr> TD <tr>
+
+TH id <tr> TH <tr>
+TH class <tr> TH <tr>
+TH style <tr> TH <tr>
+TH > <tr> XTH <th><tr>
+
+XTH string <th> XTH <th>
+XTH em <th> EM <th>
+XTH b <th> B <th>
+XTH abbr <th> ABBR <th>
+XTH strong <th> ABBR <th>
+
