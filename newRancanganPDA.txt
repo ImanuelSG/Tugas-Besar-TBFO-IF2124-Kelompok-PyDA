@@ -1,8 +1,8 @@
-INIT html e HTML zo
-HTML > zo XHTML <html>
-HTML id zo HTML zo
-HTML class zo HTML zo
-HTML style zo HTML zo
+INIT html e HTML <zo>
+HTML > <zo> XHTML <html>
+HTML id <zo> HTML <zo>
+HTML class <zo> HTML <zo>
+HTML style <zo> HTML <zo>
 XHTML head <html> HEAD <html>
 
 HEAD id <html> HEAD <html>
@@ -82,7 +82,7 @@ XBODY table <body> TABLE <body>
 XBODY cbody <body> CBODY e
 
 CBODY chtml <html> CHTML e
-CHTML e zo CHTML e 
+CHTML e <zo> CHTML e 
 
 H1 id <%> H1 <%>
 H1 class <%> H1 <%>
@@ -258,15 +258,222 @@ XABBR cabbr <abbr> XTD e
 XABBR cabbr <abbr> XBODY e
 XABBR cabbr <abbr> XDIV e
 
+STRONG id <%> STRONG <%>
+STRONG class <%> STRONG <%>
+STRONG style <%> STRONG <%>
+STRONG > <%> XSTRONG <strong><%>
+XSTRONG string <strong> XSTRONG <strong>
 
+XSTRONG cstrong <strong> XBODY e
+XSTRONG cstrong <strong> XH1 e
+XSTRONG cstrong <strong> XH2 e
+XSTRONG cstrong <strong> XH3 e
+XSTRONG cstrong <strong> XH4 e
+XSTRONG cstrong <strong> XH5 e
+XSTRONG cstrong <strong> XH6 e
+XSTRONG cstrong <strong> XP e
 
+XANY small <%> SMALL <%>
+SMALL id <%> SMALL <%>
+SMALL class <%> SMALL <%>
+SMALL style <%> SMALL <%>
+SMALL > <%> XSMALL <small><%>
+XSMALL string <small> XSMALL<small>
 
+XSMALL csmall <small> XBODY e
+XSMALL csmall <small> XH1 e
+XSMALL csmall <small> XH2 e
+XSMALL csmall <small> XH3 e
+XSMALL csmall <small> XH4 e
+XSMALL csmall <small> XH5 e
+XSMALL csmall <small> XH6 e
+XSMALL csmall <small> XP e
 
+HR id <hr> HR <hr>
+HR class <hr> HR <hr>
+HR style <hr> HR <hr>
 
+HR > <hr> XBODY e
+HR > <hr> XP e
+HR > <hr> XH1 e
+HR > <hr> XH2 e
+HR > <hr> XH3 e
+HR > <hr> XH4 e
+HR > <hr> XH5 e
+HR > <hr> XH6 e
 
+DIV id <%> DIV <%>
+DIV class <%> DIV <%>
+DIV style <%> DIV <%>
+DIV > <%> XDIV <div><%>
 
+XDIV link <div> LINK <link><div>
+XDIV script <div> SCRIPT <div>
+XDIV h1 <div> H1 <div>
+XDIV h2 <div> H2 <div>
+XDIV h3 <div> H3 <div>
+XDIV h4 <div> H4 <div>
+XDIV h5 <div> H5 <div>
+XDIV h6 <div> H6 <div>
+XDIV p <div> P <div>
+XDIV br <div> BR <br><div>
+XDIV em <div> EM <div>
+XDIV b <div> B <div>
+XDIV abbr <div> ABBR <div>
+XDIV strong <div> STRONG <div>
+XDIV small <div> SMALL <div>
+XDIV hr <div> HR <hr><div>
+XDIV a <div> A <div>
+XDIV img <div> IMG <img><div>
+XDIV button <div> BUTTON <div>
+XDIV form <div> FORM <div>
+XDIV input <div> INPUT <input><div>
+XDIV table <div> TABLE <div>
 
+XDIV div <div> DIV <div>
+XDIV cdiv <div> DIV e
+XDIV cdiv <div> XANY e
 
+A id <%> A <%>
+A class <%> A <%>
+A style <%> A <%>
+A href <%> HREF <a><%>
+A > <a> XA <a>
+XA string <a> XA <a>
+XA tags <a> XA <a>
 
+XA string <a> XA <a>
+XA br <a> BR <br><a>
+XA em <a> EM <a>
+XA b <a> B <a>
+XA abbr <a> ABBR <a>
+XA strong <a> STRONG <a>
+XA small <a> SMALL <a>
+XA img <a> IMG <img><a>
 
+XA ca <a> XBODY e
+XA ca <a> XP e
+XA ca <a> XH1 e
+XA ca <a> XH2 e
+XA ca <a> XH3 e
+XA ca <a> XH4 e
+XA ca <a> XH5 e
+XA ca <a> XH6 e
 
+IMG id <img> IMG <img>
+IMG class <img> IMG <img>
+IMG style <img> IMG <img>
+IMG src <img> SRC <img>
+SRC alt <img> SRC <img>
+
+SRC > <img> XBODY e 
+SRC > <img> XP e 
+SRC > <img> XDIV e 
+
+BUTTON type="submit" <%> TYPE <%>
+BUTTON type="reset" <%> TYPE <%>
+BUTTON type="button" <%> TYPE <%>
+TYPE > <%> XBUTTON <button><%>
+
+XBUTTON string <button> XBUTTON <button>
+XBUTTON br <button> BR <br><button>
+XBUTTON em <button> EM <button>
+XBUTTON b <button> B <button>
+XBUTTON abbr <button> ABBR <BUTTON>
+XBUTTON strong <button> STRONG <button>
+XBUTTON small <button> SMALL <button>
+XBUTTON img <button> IMG <img><button>
+
+XBUTTON cbutton <button> XBODY e
+XBUTTON cbutton <button> XP e
+XBUTTON cbutton <button> XH1 e
+XBUTTON cbutton <button> XH2 e
+XBUTTON cbutton <button> XH3 e
+XBUTTON cbutton <button> XH4 e
+XBUTTON cbutton <button> XH5 e
+XBUTTON cbutton <button> XH6 e
+
+FORM id <%> FORM <%>
+FORM class <%> FORM <%>
+FORM style <%> FORM <%>
+FORM action <%> ACTION <%>
+ACTION id <%> ACTION <%>
+ACTION class <%> ACTION <%>
+ACTION style <%> ACTION <%>
+ACTION method <%> METHOD <%>
+METHOD id <%> METHOD <%>
+METHOD class <%> METHOD <%>
+METHOD style <%> METHOD <%>
+METHOD "POST" <%> METHOD <%>
+METHOD "GET" <%> METHOD <%>
+METHOD > <%> XFORM <form><%>
+
+XFORM input <form> INPUT <form>
+XFORM button <form> BUTTON <form>
+
+XFORM cform <form> XBODY e
+XFORM cform <form> XDIV e
+
+INPUT id <input> INPUT <input>
+INPUT class <input> INPUT <input>
+INPUT style <input> INPUT <input>
+INPUT type <input> TYPE <input>
+TYPE "text" <input> TYPE <input>
+TYPE "password" <input> TYPE <input>
+TYPE "email" <input> TYPE <input>
+TYPE "number" <input> TYPE <input>
+TYPE "checkbox" <input> TYPE <input>
+
+TYPE > <input> XBODY e
+TYPE > <input> XDIV e
+
+TABLE id <%> TABLE <%>
+TABLE class <%> TABLE <%>
+TABLE style <%> TABLE <%>
+TABLE > <%> XTABLE <table><%>
+XTABLE tr <table> TR <table>
+XTABLE ctable <table> XBODY e
+XTABLE ctable <table> XDIV e
+
+TR id <table> TR <table>
+TR class <table> TR <table>
+TR style <table> TR <table>
+TR > <table> XTR <tr><table>
+
+XTR th <tr> TH <tr>
+XTR td <tr> TD <tr>
+XTR > <tr> XTABLE e
+
+TH id <tr> TH <tr>
+TH class <tr> TH <tr>
+TH style <tr> TH <tr>
+TH > <tr> XTH <th><tr>
+
+XTH string <th> XTH <th>
+XTH em <th> EM <th>
+XTH b <th> B <th>
+XTH abbr <th> ABBR <th>
+XTH strong <th> STRONG <th>
+XTH small <th> SMALL <th>
+XTH cth <th> CTR e
+
+TD id <tr> TD <tr>
+TD class <tr> TD <tr>
+TD style <tr> TD <tr>
+TD > <tr> XTD <td><tr>
+
+XTD string <td> XTD <td>
+XTD em <td> EM <td>
+XTD b <td> B <td>
+XTD abbr <td> ABBR <td>
+XTD strong <td> STRONG <td>
+XTD small <td> SMALL <td>
+XTD ctd <td> CTR e
+
+CTR ctr <tr> CTABLE e
+CTR ctr <tr> XTABLE e
+CTR th <tr> TH <tr>
+CTR td <tr> TD <tr>
+
+CTABLE ctable <table> XBODY e
+CTABLE ctable <table XDIV e
