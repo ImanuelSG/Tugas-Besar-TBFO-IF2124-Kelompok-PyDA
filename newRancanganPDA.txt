@@ -3,8 +3,8 @@ html > id class style head chead body cbody title ctitle script cscript link e r
 <zo> <html> <head> <body> <title> <script> <link> <rel> <href> <h1> <h2> <h3> <h4> <h5> <h6> <p> <br> <em> <abbr> <strong> <small> <hr> <div> <a> <img> <src> <button> <form> <action> <method> <table> <th> <tr> <td> # stack symbols
 INIT # starting state
 e # starting stack
-CHTML # accepting states
-CHTML # E - accepts with empty stack or F - accepts with accepting state
+FINAL # accepting states
+FINAL # E - accepts with empty stack or F - accepts with accepting state
 Q a Z Q YZ # list of productions (current state, read from word, take from stack, next state, add to stack)
 
 INIT html e HTML <zo>
