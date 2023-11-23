@@ -55,6 +55,7 @@ BODY class <html> BODY <html>
 BODY style <html> BODY <html>
 BODY > <html> XBODY <body><html>
 
+XBODY string <body> XBODY <body>
 XBODY link <body> LINK <link><body>
 XBODY script <body> SCRIPT <body>
 XBODY h1 <body> H1 <body>
@@ -78,6 +79,10 @@ XBODY button <body> BUTTON <body>
 XBODY form <body> FORM <body>
 XBODY input <body> INPUT <input><body>
 XBODY table <body> TABLE <body>
+XBODY cbody <body> CBODY e
+
+CBODY chtml <html> CHTML e
+CHTML e zo CHTML e 
 
 H1 id <%> H1 <%>
 H1 class <%> H1 <%>

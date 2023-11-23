@@ -10,7 +10,7 @@ def tokenize_html(input_str):
     attribute_pattern = re.compile(r'(\w+)\s*=\s*("[^"]*")')
     
     closetag_pattern = re.compile(r'</\s*(\w+)\s*>')
-    void_close = re.compile(r'/>')
+    # void_close = re.compile(r'/>')
 
     closebracket = re.compile(r'>')
     newline = re.compile(r'\n')
@@ -46,9 +46,6 @@ def tokenize_html(input_str):
             closetag_match = closetag_pattern.match(input_str)
             tokens.append("c" + closetag_match.group(1))
             input_str = input_str[closetag_match.end():]
-        elif void_close.match(input_str):
-            tokens.append("/>")
-            input_str = input_str[2:]
         elif comment.match(input_str):
             comment_match = comment.match(input_str)
             input_str = input_str[comment_match.end():]
