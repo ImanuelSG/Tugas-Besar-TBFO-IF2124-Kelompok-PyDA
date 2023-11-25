@@ -1,5 +1,5 @@
-INIT HTML XHTML CHTML HEAD XHEAD TITLE XTITLE SCRIPT SRC XSCRIPT LINK REL XHEAD CHEAD BODY CBODY
-html > id class style head title rel ctitle chead link script cscript href e body chtml cbody
+INIT HTML XHTML CHTML HEAD XHEAD CHEAD TITLE XTITLE SCRIPT XSCRIPT LINK XLINK REL XREL BODY XBODY CBODY H1 XH1 H2 XH2 H3 XH3 H4 XH4 H5 XH5 H6 XH6 P XP BR EM XEM B XB ABBR XABBR STRONG XSTRONG SMALL XSMALL HR DIV XDIV A XA IMG SRC BUTTON XBUTTON TYPE FORM XFORM METHOD ACTION INPUT TABLE XTABLE CTABLE TR XTR CTR RH XTH TD XTD
+html > id class style head chead title ctitle script cscript link e rel href h1 ch1 h2 ch2 h3 ch3 h4 ch4 h5 ch5 h6 ch6 p br c em cem abbr cabbr strong cstrong small csmall hr div cdiv a ca img button cbutton form cform action method table ctable
 <e> <zo> <html> <head> <body> <title> <script> <link> <%>
 INIT
 <e> 
@@ -92,8 +92,9 @@ XH1 strong <h1> STRONG <h1>
 XH1 small <h1> SMALL <h1>
 XH1 a <h1> A <h1>
 XH1 img <h1> IMG <img><h1>
-XH1 ch1 <h1> XBODY e
-XH1 ch1 <h1> XDIV e
+XH1 ch1 <h1> XH1 e
+XH1 e <body> XBODY <body>
+XH1 e <div> XDIV <div>
 H2 id <%> H2 <%>
 H2 class <%> H2 <%>
 H2 style <%> H2 <%>

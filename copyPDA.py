@@ -59,6 +59,7 @@ class PDA:
                                     stack.append(prev)
                                 else:
                                     stack.append(push_stack)
+                        print(current_states)
                         print(current_state,symbol,stack)
 
                 if not next_states:
@@ -122,8 +123,6 @@ def parse_file(filename):
 
     for line in lines[7:]:
         parts = line.split()
-        # if (len(parts) != 5):
-        #     print(parts)
         current_state, read_symbol, take_stack, next_state, add_stack = parts
         production = (next_state, add_stack)
 
