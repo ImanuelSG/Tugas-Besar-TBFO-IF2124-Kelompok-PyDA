@@ -77,13 +77,7 @@ def extract_stack_symbols(productions): #ini cuma buat mastiin apakah stack symb
     return stack_symbols
 
 def parse_file(filename):
-    global productions
-    global start_state
-    global input_symbols
-    global stack_symbols
-    global start_stack
-    global accepting_states
-    global accept_condition
+    
     global pda
     try:
         with open(filename, 'r') as file:
