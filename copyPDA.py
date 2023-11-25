@@ -24,73 +24,58 @@ class PDA:
         )
 
     def simulate(self, input_string):
-        stack = [self.initial_stack]  
-        current_state = self.initial_state
-        rowrightnow = 1
-        
-        for symbol in input_string:
-            print(current_state)
-            if symbol == "nl":
-                rowrightnow += 1
-            elif (current_state, symbol, stack[-1]) in self.transitions:
-                next_state, push_stack = self.transitions[(current_state, symbol, stack[-1])][0]
-                stack.pop()
-                if push_stack != "e":
-                    if push_stack.startswith('<') and push_stack.endswith('>'):
-                        push_stack = push_stack[1:-1]  # Remove the angle brackets
-                        substrings = push_stack.split('><')
-                        for substring in reversed(substrings):
-                            stack.append('<' + substring + '>')
-                    else:
-                        stack.append(push_stack)
-                current_state = next_state
-            elif (current_state, symbol, "<%>") in self.transitions:
-                next_state, push_stack = self.transitions[(current_state, symbol, "<%>")][0]
-                prev = stack.pop()
-                
-                if push_stack != "e":
-                    if push_stack.startswith('<') and push_stack.endswith('>'):
-                        push_stack = push_stack[1:-1]  # Remove the angle brackets
-                        substrings = push_stack.split('><')
-                        for substring in reversed(substrings):
-                            if (substring == "%"):
-                                stack.append(prev)
-                            else:
-                                stack.append('<' + substring + '>')
-                    else:
-                        stack.append(prev)
-                current_state = next_state
-            elif (current_state, "e", stack[-1]) in self.transitions:
-                next_state, push_stack = self.transitions[(current_state, "e", stack[-1])][0]
-                stack.pop()
-                if push_stack != "e":
-                    if push_stack.startswith('<') and push_stack.endswith('>'):
-                        push_stack = push_stack[1:-1]  # Remove the angle brackets
-                        substrings = push_stack.split('><')
-                        for substring in reversed(substrings):
-                            if (substring == "%"):
-                                stack.append(prev)
-                            else:
-                                stack.append('<' + substring + '>')
-                    else:
-                        stack.append(push_stack)
-                current_state = next_state
-                input_string.insert(0, symbol)
-                
+        stack = [self.initial_stack]
+        current_states = {self.initial_state}
+        row_right_now = 1
 
+        for symbol in input_string:
+            if symbol == "nl":
+                row_right_now += 1
             else:
-                
-                print (stack)
-                print (input_symbols)
-                if ((current_state, _, stack[-1]) in self.transitions for _ in input_symbols):
-                    # Your code here
-                    rowrightnow += 1
-                print(f"Error: No transition for state {current_state}, symbol {symbol}, stack {stack[-1]} at row {rowrightnow} - {arrlines[rowrightnow-1]}")
-                
-                return False
-        
-        print ("Omaigad jalan")
-        return current_state in self.accepting_states and not stack
+                next_states = set()
+                for current_state in current_states:
+                    matching_transitions = self.transitions.get((current_state, symbol, stack[-1]), [])
+    
+                    if not matching_transitions:
+                        matching_transitions = self.transitions.get((current_state, symbol, "<%>"), [])
+
+                    
+                    for transition in matching_transitions:
+                        next_state_t, push_stack = transition
+                        next_states.add(next_state_t)
+
+                        prev = stack.pop()
+                        # new_stack = list(stack)
+                        if push_stack != "e":
+                            if push_stack.startswith('<') and push_stack.endswith('>'):
+                                push_stack = push_stack[1:-1]  # Remove the angle brackets
+                                substrings = push_stack.split('><')
+                                for substring in reversed(substrings):
+                                    if substring == "%":
+                                        stack.append(prev)
+                                    else:
+                                        stack.append('<' + substring + '>')
+                            else:
+                                if push_stack == "<%>":
+                                    stack.append(prev)
+                                else:
+                                    stack.append(push_stack)
+                        print(current_states)
+                        print(current_state,symbol,stack)
+
+                if not next_states:
+                    print(f"Error: No transition for current states {current_states}, symbol {symbol}, stack {stack[-1]} at row {row_right_now}")
+                    return False
+
+                current_states = next_states
+
+        print(stack)
+        print(row_right_now)
+        return any(state in self.accepting_states and not stack for state in current_states)
+
+   
+
+
 
 def extract_states(productions): #ini cuma buat mastiin apakah states yang ditulis di txt udah semua
     states = set()
@@ -163,21 +148,9 @@ def parse_file(filename):
         accepting_type=accept_condition
     )
 
-def lines_from_file(file_path):
-    with open(file_path, 'r', encoding='utf-8') as file:
-        input_str = file.readlines()
-    return input_str
-
-
-# txt = str(input("Masukkan nama file txt: "))
-html = str(input("Masukkan nama file html: "))
-
-global arrlines
-arrlines = lines_from_file("Test/"+ html)
-
-parse_file("testPDA.txt")
-tokens = tokenize_html_from_file("Test/"+html)
+filename = "testPDA.txt"
+parse_file(filename)
+tokens = tokenize_html_from_file("test.html")
 print (tokens)
 PDA.simulate(pda, tokens)
-
 
