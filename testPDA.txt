@@ -337,6 +337,7 @@ TR id <table> TR <table>
 TR class <table> TR <table>
 TR style <table> TR <table>
 TR > <table> XTR <tr><table>
+TR > <%> XTR <tr><%>
 XTR th <tr> TH <tr>
 XTR td <tr> TD <tr>
 XTR tr <tr> TR <tr>
@@ -383,7 +384,7 @@ CTR e <table> XTABLE <table>
 CTR comment <%> CTR <%>
 CTH e <th> XTH <th>
 CTH e <td> XTD <td>
-CTH e <tr> XTR <td>
+CTH e <tr> XTR <tr>
 CTH comment <%> CTH <%>
 CTABLE e <body> XBODY <body>
 CTABLE e <div> XDIV <div>
