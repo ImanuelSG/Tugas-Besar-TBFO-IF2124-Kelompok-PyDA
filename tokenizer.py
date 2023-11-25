@@ -8,10 +8,8 @@ def tokenize_html_from_file(file_path):
 def tokenize_html(input_str):
     tag_pattern = re.compile(r'<\s*(\w+)\s*')  # to read the tag
     attribute_pattern = re.compile(r'(\w+)\s*=\s*("[^"]*")')
-    
     closetag_pattern = re.compile(r'</\s*(\w+)\s*>')
     void_close = re.compile(r'/>')
-
     closebracket = re.compile(r'>')
     newline = re.compile(r'\n')
     comment = re.compile(r'<!--.*?-->')
