@@ -92,9 +92,9 @@ XH1 strong <h1> STRONG <h1>
 XH1 small <h1> SMALL <h1>
 XH1 a <h1> A <h1>
 XH1 img <h1> IMG <img><h1>
-XH1 ch1 <h1> XH1 e
-XH1 e <body> XBODY <body>
-XH1 e <div> XDIV <div>
+XH1 ch1 <h1> CH1 e
+CH1 e <body> XBODY <body>  
+CH1 e <div> XDIV <div>
 H2 id <%> H2 <%>
 H2 class <%> H2 <%>
 H2 style <%> H2 <%>

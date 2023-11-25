@@ -27,12 +27,18 @@ class PDA:
         stack = [self.initial_stack]
         current_states = {self.initial_state}
         row_right_now = 1
+        is_Epsilon = False
 
         for symbol in input_string:
             if symbol == "nl":
                 row_right_now += 1
             else:
                 next_states = set()
+                epsilon_states = set()
+                for current_state in current_states:
+                    epsilon_transitions = self.transitions.get((current_state, "e", stack[-1]), [])
+                    epsilon_states.update(epsilon_transitions)
+                    
                 for current_state in current_states:
                     matching_transitions = self.transitions.get((current_state, symbol, stack[-1]), [])
     
@@ -61,12 +67,17 @@ class PDA:
                                     stack.append(push_stack)
                         print(current_states)
                         print(current_state,symbol,stack)
+                        print(f"epsilon:{list(epsilon_states)}")
 
                 if not next_states:
                     print(f"Error: No transition for current states {current_states}, symbol {symbol}, stack {stack[-1]} at row {row_right_now}")
                     return False
+                
+                # is_Epsilon = bool(epsilon_states)
+                # if is_Epsilon:
+                #     input_string.insert(0,symbol)
 
-                current_states = next_states
+                current_states = next_states.union(epsilon_states)
 
         print(stack)
         print(row_right_now)
