@@ -1,0 +1,488 @@
+INIT HTML XHTML CHTML HEAD XHEAD CHEAD TITLE XTITLE SCRIPT XSCRIPT LINK XLINK REL XREL BODY XBODY CBODY H1 XH1 H2 XH2 H3 XH3 H4 XH4 H5 XH5 H6 XH6 P XP BR EM XEM B XB ABBR XABBR STRONG XSTRONG SMALL XSMALL HR DIV XDIV A XA IMG SRC BUTTON XBUTTON TYPE FORM XFORM METHOD ACTION INPUT TABLE XTABLE CTABLE TR XTR CTR RH XTH TD XTD # total states
+html > id class style head chead body cbody title ctitle script cscript link e rel href h1 ch1 h2 ch2 h3 ch3 h4 ch4 h5 ch5 h6 ch6 p cp br em cem abbr cabbr strong cstrong small csmall hr div cdiv a ca img src alt button cbutton form cform action method table ctable th cth tr ctr td ctd # input word symbols
+<zo> <html> <head> <body> <title> <script> <link> <rel> <href> <h1> <h2> <h3> <h4> <h5> <h6> <p> <br> <em> <abbr> <strong> <small> <hr> <div> <a> <img> <src> <button> <form> <action> <method> <table> <th> <tr> <td> # stack symbols
+INIT # starting state
+e # starting stack
+FINAL # accepting states
+FINAL # E - accepts with empty stack or F - accepts with accepting state
+Q a Z Q YZ # list of productions (current state, read from word, take from stack, next state, add to stack)
+
+INIT html e HTML <zo>
+HTML > <zo> XHTML <html>
+HTML id <zo> HTML <zo>
+HTML class <zo> HTML <zo>
+HTML style <zo> HTML <zo>
+XHTML head <html> HEAD <html>
+
+HEAD id <html> HEAD <html>
+HEAD class <html> HEAD <html>
+HEAD style <html> HEAD <html>
+HEAD > <html> XHEAD <head><html>
+
+XHEAD title <head> TITLE <head>
+XHEAD script <head> SCRIPT <head>
+XHEAD link  <head> LINK <link><head>
+
+TITLE id <head> TITLE <head>
+TITLE class <head> TITLE <head>
+TITLE style <head> TITLE <head>
+TITLE > <head> XTITLE <title><head>
+
+XTITLE string <title> XTITLE <title>
+XTITLE e <title> XTITLE <title>
+XTITLE ctitle <title> HEAD e
+
+SCRIPT id <%> SCRIPT <%>
+SCRIPT class <%> SCRIPT <%>
+SCRIPT style <%> SCRIPT <%>
+SCRIPT src <%> SRC <%>
+SRC > <%> XSCRIPT <script><%>
+
+XSCRIPT string <script> XSCRIPT  <title>
+XSCRIPT cscript <script> DIV e
+XSCRIPT cscript <script> BODY e
+XSCRIPT cscript <script HEAD e
+
+LINK rel <link> REL <link>
+LINK href <link> LINK <link>
+LINK id <link> LINK <link>
+LINK class <link> LINK <link>
+LINK style <link> LINK <link>
+REL href <link> REL <link>
+REL id <link> REL <link>
+REL class <link> REL <link>
+REL style <link> REL <link>
+REL > <link> XLINK DIV e
+REL > <link> XLINK BODY e
+REL > <link> XLINK HEAD e
+
+XHEAD chead <head> CHEAD e
+CHEAD body <html> BODY <html>
+
+BODY id <html> BODY <html>
+BODY class <html> BODY <html>
+BODY style <html> BODY <html>
+BODY > <html> XBODY <body><html>
+
+XBODY string <body> XBODY <body>
+XBODY link <body> LINK <link><body>
+XBODY script <body> SCRIPT <body>
+XBODY h1 <body> H1 <body>
+XBODY h2 <body> H2 <body>
+XBODY h3 <body> H3 <body>
+XBODY h4 <body> H4 <body>
+XBODY h5 <body> H5 <body>
+XBODY h6 <body> H6 <body>
+XBODY p <body> P <body>
+XBODY br <body> BR <br><body>
+XBODY em <body> EM <body>
+XBODY b <body> B <body>
+XBODY abbr <body> ABBR <body>
+XBODY strong <body> STRONG <body>
+XBODY small <body> SMALL <body>
+XBODY hr <body> HR <hr><body>
+XBODY div <body> DIV <body>
+XBODY a <body> A <body>
+XBODY img <body> IMG <img><body>
+XBODY button <body> BUTTON <body>
+XBODY form <body> FORM <body>
+XBODY input <body> INPUT <input><body>
+XBODY table <body> TABLE <body>
+XBODY cbody <body> CBODY e
+
+CBODY chtml <html> CHTML e
+CHTML e <zo> FINAL e 
+
+
+H1 id <%> H1 <%>
+H1 class <%> H1 <%>
+H1 style <%> H1 <%>
+H1 > <%> XH1 <h1><%>
+
+XH1 string <h1> XH1 <h1>
+XH1 br <h1> BR <br><h1>
+XH1 em <h1> EM <h1>
+XH1 b <h1> B <h1>
+XH1 abbr <h1> ABBR <h1>
+XH1 strong <h1> STRONG <h1>
+XH1 small <h1> SMALL <h1>
+XH1 a <h1> A <h1>
+XH1 img <h1> IMG <img><h1>
+XH1 ch1 <h1> XBODY e
+XH1 ch1 <h1> XDIV e
+
+H2 id <%> H2 <%>
+H2 class <%> H2 <%>
+H2 style <%> H2 <%>
+H2 > <%> XH2 <h2><%>
+
+XH2 string <h2> XH2 <h2>
+XH2 br <h2> BR <br><h2>
+XH2 em <h2> EM <h2>
+XH2 b <h2> B <h2>
+XH2 abbr <h2> ABBR <h2>
+XH2 strong <h2> STRONG <h2>
+XH2 small <h2> SMALL <h2>
+XH2 a <h2> A <h2>
+XH2 img <h2> IMG <img><h2>
+XH2 ch2 <h2> XBODY e
+XH2 ch2 <h2> XDIV e
+
+H3 id <%> H3 <%>
+H3 class <%> H3 <%>
+H3 style <%> H3 <%>
+H3 > <%> XH3 <h3><%>
+
+XH3 string <h3> XH3 <h3>
+XH3 br <h3> BR <br><h3>
+XH3 em <h3> EM <h3>
+XH3 b <h3> B <h3>
+XH3 abbr <h3> ABBR <h3>
+XH3 strong <h3> STRONG <h3>
+XH3 small <h3> SMALL <h3>
+XH3 a <h3> A <h3>
+XH3 img <h3> IMG <img><h3>
+XH3 ch3 <h3> XBODY e
+XH3 ch3 <h3> XDIV e
+
+H4 id <%> H4 <%>
+H4 class <%> H4 <%>
+H4 style <%> H4 <%>
+H4 > <%> XH4 <h4><%>
+
+XH4 string <h4> XH4 <h4>
+XH4 br <h4> BR <br><h4>
+XH4 em <h4> EM <h4>
+XH4 b <h4> B <h4>
+XH4 abbr <h4> ABBR <h4>
+XH4 strong <h4> STRONG <h4>
+XH4 small <h4> SMALL <h4>
+XH4 a <h4> A <h4>
+XH4 img <h4> IMG <img><h4>
+XH4 ch4 <h4> XBODY e
+XH4 ch4 <h4> XDIV e
+
+H5 id <%> H5 <%>
+H5 class <%> H5 <%>
+H5 style <%> H5 <%>
+H5 > <%> XH5 <h5><%>
+
+XH5 string <h5> XH5 <h5>
+XH5 br <h5> BR <br><h5>
+XH5 em <h5> EM <h5>
+XH5 b <h5> B <h5>
+XH5 abbr <h5> ABBR <h5>
+XH5 strong <h5> STRONG <h5>
+XH5 small <h5> SMALL <h5>
+XH5 a <h5> A <h5>
+XH5 img <h5> IMG <img><h5>
+XH5 ch5 <h5> XBODY e
+XH5 ch5 <h5> XDIV e
+
+H6 id <%> H6 <%>
+H6 class <%> H6 <%>
+H6 style <%> H6 <%>
+H6 > <%> XH6 <h6><%>
+
+XH6 string <h6> XH6 <h6>
+XH6 br <h6> BR <br><h6>
+XH6 em <h6> EM <h6>
+XH6 b <h6> B <h6>
+XH6 abbr <h6> ABBR <h6>
+XH6 strong <h6> STRONG <h6>
+XH6 small <h6> SMALL <h6>
+XH6 a <h6> A <h6>
+XH6 img <h6> IMG <img><h6>
+XH6 ch6 <h6> XBODY e
+XH6 ch6 <h6> XDIV e
+
+P id <%> P <%>
+P class <%> P <%>
+P style <%> P <%>
+P > <%> XP <p><%>
+
+XP string <p> XP <p>
+XP br <p> BR <br><p>
+XP em <p> EM <p>
+XP b <p> B <p>
+XP abbr <p> ABBR <p>
+XP strong <p> STRONG <p>
+XP small <p> SMALL <p>
+XP a <p> A <p>
+XP img <p> IMG <img><p>
+XP cp <p> XBODY e
+XP cp <p> XDIV e
+
+BR > <br> XH1 e
+BR > <br> XH2 e
+BR > <br> XH3 e
+BR > <br> XH4 e
+BR > <br> XH5 e
+BR > <br> XH6 e
+BR > <br> XP e
+BR > <br> XBODY e
+BR > <br> XDIV e
+
+EM > <%> XEM <em><%>
+
+XEM string <em> XEM <em>
+XEM cem <em> XH1 e
+XEM cem <em> XH2 e
+XEM cem <em> XH3 e
+XEM cem <em> XH4 e
+XEM cem <em> XH5 e
+XEM cem <em> XH6 e
+XEM cem <em> XP e
+XEM cem <em> XTH e
+XEM cem <em> XTD e
+XEM cem <em> XBODY e
+XEM cem <em> XDIV e
+
+B > <%> XB <b><%>
+
+XB string <b> XB <b>
+XB cb <b> XH1 e
+XB cb <b> XH2 e
+XB cb <b> XH3 e
+XB cb <b> XH4 e
+XB cb <b> XH5 e
+XB cb <b> XH6 e
+XB cb <b> XP e
+XB cb <b> XTH e
+XB CB <b> XTD e
+XB cb <b> XBODY e
+XB cb <b> XDIV e
+
+ABBR > <%> XABBR <abbr><%>
+
+XABBR string <abbr> XABBR <abbr>
+XABBR cabbr <abbr> XH1 e
+XABBR cabbr <abbr> XH2 e
+XABBR cabbr <abbr> XH3 e
+XABBR cabbr <abbr> XH4 e
+XABBR cabbr <abbr> XH5 e
+XABBR cabbr <abbr> XH6 e
+XABBR cabbr <abbr> XP e
+XABBR cabbr <abbr> XTH e
+XABBR cabbr <abbr> XTD e
+XABBR cabbr <abbr> XBODY e
+XABBR cabbr <abbr> XDIV e
+
+STRONG id <%> STRONG <%>
+STRONG class <%> STRONG <%>
+STRONG style <%> STRONG <%>
+STRONG > <%> XSTRONG <strong><%>
+XSTRONG string <strong> XSTRONG <strong>
+
+XSTRONG cstrong <strong> XBODY e
+XSTRONG cstrong <strong> XH1 e
+XSTRONG cstrong <strong> XH2 e
+XSTRONG cstrong <strong> XH3 e
+XSTRONG cstrong <strong> XH4 e
+XSTRONG cstrong <strong> XH5 e
+XSTRONG cstrong <strong> XH6 e
+XSTRONG cstrong <strong> XP e
+
+SMALL id <%> SMALL <%>
+SMALL class <%> SMALL <%>
+SMALL style <%> SMALL <%>
+SMALL > <%> XSMALL <small><%>
+XSMALL string <small> XSMALL<small>
+
+XSMALL csmall <small> XBODY e
+XSMALL csmall <small> XH1 e
+XSMALL csmall <small> XH2 e
+XSMALL csmall <small> XH3 e
+XSMALL csmall <small> XH4 e
+XSMALL csmall <small> XH5 e
+XSMALL csmall <small> XH6 e
+XSMALL csmall <small> XP e
+
+HR id <hr> HR <hr>
+HR class <hr> HR <hr>
+HR style <hr> HR <hr>
+
+HR > <hr> XBODY e
+HR > <hr> XP e
+HR > <hr> XH1 e
+HR > <hr> XH2 e
+HR > <hr> XH3 e
+HR > <hr> XH4 e
+HR > <hr> XH5 e
+HR > <hr> XH6 e
+
+DIV id <%> DIV <%>
+DIV class <%> DIV <%>
+DIV style <%> DIV <%>
+DIV > <%> XDIV <div><%>
+
+XDIV link <div> LINK <link><div>
+XDIV script <div> SCRIPT <div>
+XDIV h1 <div> H1 <div>
+XDIV h2 <div> H2 <div>
+XDIV h3 <div> H3 <div>
+XDIV h4 <div> H4 <div>
+XDIV h5 <div> H5 <div>
+XDIV h6 <div> H6 <div>
+XDIV p <div> P <div>
+XDIV br <div> BR <br><div>
+XDIV em <div> EM <div>
+XDIV b <div> B <div>
+XDIV abbr <div> ABBR <div>
+XDIV strong <div> STRONG <div>
+XDIV small <div> SMALL <div>
+XDIV hr <div> HR <hr><div>
+XDIV a <div> A <div>
+XDIV img <div> IMG <img><div>
+XDIV button <div> BUTTON <div>
+XDIV form <div> FORM <div>
+XDIV input <div> INPUT <input><div>
+XDIV table <div> TABLE <div>
+
+XDIV div <div> DIV <div>
+XDIV cdiv <div> DIV e
+XDIV cdiv <div> XANY e
+
+A id <%> A <%>
+A class <%> A <%>
+A style <%> A <%>
+A href <%> HREF <a><%>
+A > <a> XA <a>
+XA string <a> XA <a>
+XA tags <a> XA <a>
+
+XA string <a> XA <a>
+XA br <a> BR <br><a>
+XA em <a> EM <a>
+XA b <a> B <a>
+XA abbr <a> ABBR <a>
+XA strong <a> STRONG <a>
+XA small <a> SMALL <a>
+XA img <a> IMG <img><a>
+
+XA ca <a> XBODY e
+XA ca <a> XP e
+XA ca <a> XH1 e
+XA ca <a> XH2 e
+XA ca <a> XH3 e
+XA ca <a> XH4 e
+XA ca <a> XH5 e
+XA ca <a> XH6 e
+
+IMG id <img> IMG <img>
+IMG class <img> IMG <img>
+IMG style <img> IMG <img>
+IMG src <img> SRC <img>
+SRC alt <img> SRC <img>
+
+SRC > <img> XBODY e 
+SRC > <img> XP e 
+SRC > <img> XDIV e 
+
+BUTTON type="submit" <%> TYPE <%>
+BUTTON type="reset" <%> TYPE <%>
+BUTTON type="button" <%> TYPE <%>
+TYPE > <%> XBUTTON <button><%>
+
+XBUTTON string <button> XBUTTON <button>
+XBUTTON br <button> BR <br><button>
+XBUTTON em <button> EM <button>
+XBUTTON b <button> B <button>
+XBUTTON abbr <button> ABBR <BUTTON>
+XBUTTON strong <button> STRONG <button>
+XBUTTON small <button> SMALL <button>
+XBUTTON img <button> IMG <img><button>
+
+XBUTTON cbutton <button> XBODY e
+XBUTTON cbutton <button> XP e
+XBUTTON cbutton <button> XH1 e
+XBUTTON cbutton <button> XH2 e
+XBUTTON cbutton <button> XH3 e
+XBUTTON cbutton <button> XH4 e
+XBUTTON cbutton <button> XH5 e
+XBUTTON cbutton <button> XH6 e
+
+FORM id <%> FORM <%>
+FORM class <%> FORM <%>
+FORM style <%> FORM <%>
+FORM action <%> ACTION <%>
+ACTION id <%> ACTION <%>
+ACTION class <%> ACTION <%>
+ACTION style <%> ACTION <%>
+ACTION method <%> METHOD <%>
+METHOD id <%> METHOD <%>
+METHOD class <%> METHOD <%>
+METHOD style <%> METHOD <%>
+METHOD "POST" <%> METHOD <%>
+METHOD "GET" <%> METHOD <%>
+METHOD > <%> XFORM <form><%>
+
+XFORM input <form> INPUT <form>
+XFORM button <form> BUTTON <form>
+
+XFORM cform <form> XBODY e
+XFORM cform <form> XDIV e
+
+INPUT id <input> INPUT <input>
+INPUT class <input> INPUT <input>
+INPUT style <input> INPUT <input>
+INPUT type <input> TYPE <input>
+TYPE "text" <input> TYPE <input>
+TYPE "password" <input> TYPE <input>
+TYPE "email" <input> TYPE <input>
+TYPE "number" <input> TYPE <input>
+TYPE "checkbox" <input> TYPE <input>
+
+TYPE > <input> XBODY e
+TYPE > <input> XDIV e
+
+TABLE id <%> TABLE <%>
+TABLE class <%> TABLE <%>
+TABLE style <%> TABLE <%>
+TABLE > <%> XTABLE <table><%>
+XTABLE tr <table> TR <table>
+XTABLE ctable <table> XBODY e
+XTABLE ctable <table> XDIV e
+
+TR id <table> TR <table>
+TR class <table> TR <table>
+TR style <table> TR <table>
+TR > <table> XTR <tr><table>
+
+XTR th <tr> TH <tr>
+XTR td <tr> TD <tr>
+XTR > <tr> XTABLE e
+
+TH id <tr> TH <tr>
+TH class <tr> TH <tr>
+TH style <tr> TH <tr>
+TH > <tr> XTH <th><tr>
+
+XTH string <th> XTH <th>
+XTH em <th> EM <th>
+XTH b <th> B <th>
+XTH abbr <th> ABBR <th>
+XTH strong <th> STRONG <th>
+XTH small <th> SMALL <th>
+XTH cth <th> CTR e
+
+TD id <tr> TD <tr>
+TD class <tr> TD <tr>
+TD style <tr> TD <tr>
+TD > <tr> XTD <td><tr>
+
+XTD string <td> XTD <td>
+XTD em <td> EM <td>
+XTD b <td> B <td>
+XTD abbr <td> ABBR <td>
+XTD strong <td> STRONG <td>
+XTD small <td> SMALL <td>
+XTD ctd <td> CTR e
+
+CTR ctr <tr> CTABLE e
+CTR ctr <tr> XTABLE e
+CTR th <tr> TH <tr>
+CTR td <tr> TD <tr>
+
+CTABLE ctable <table> XBODY e
+CTABLE ctable <table XDIV e

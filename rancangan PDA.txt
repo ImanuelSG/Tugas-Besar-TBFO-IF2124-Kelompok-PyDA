@@ -1,0 +1,287 @@
+Current State, Input Alphabet, Top of the Stack, Next State, Action to the Stack
+
+{ id :1.class:2,style:3}
+
+
+{HTML - HEAD}
+INIT,html,e,HTML,Z0
+HTML,>,Z0,XHTML,<html>
+XHTML,head,<html>HEAD,<html>
+
+HEAD, id, <html>, HEAD1, <html>
+HEAD, class, <html>, HEAD2, <html>
+HEAD, style, <html>, HEAD3, <html>
+HEAD, >, <html>, XHEAD, <head>
+
+HEAD1,>,<html>,XHEAD,<head>
+HEAD1,class,<html>,HEAD12,<html>
+HEAD1,style,<html>,HEAD13,<html>
+HEAD12,style,<html>,HEAD123,<html>
+HEAD12,>,<html>,XHEAD,<head>
+HEAD13,class,<html>,HEAD132,<html>
+HEAD13,>,<html>,XHEAD,<head>
+HEAD123,>,<html>,XHEAD,<head>
+HEAD132,><html>,XHEAD,<head>
+
+
+
+HEAD2, id, <html>, HEAD21, <html>
+HEAD2, style, <html>, HEAD23, <html>
+HEAD2, >, <html>, XHEAD, <head>
+HEAD21, style, <html>, HEAD213, <html>
+HEAD21, >, <html>, XHEAD, <head>
+HEAD23, id, <html>, HEAD231, <html>
+HEAD23, >, <html>, XHEAD, <head>
+HEAD213, >, <html>, XHEAD, <head>
+HEAD231, >, <html>, XHEAD, <head>
+
+HEAD3, id, <html>, HEAD31, <html>
+HEAD3, class, <html>, HEAD32, <html>
+HEAD3, >, <html>, XHEAD, <head>
+HEAD31, class, <html>, HEAD312, <html>
+HEAD31, >, <html>, XHEAD, <head>
+HEAD32, id, <html>, HEAD321, <html>
+HEAD32, >, <html>, XHEAD, <head>
+HEAD312, >, <html>, XHEAD, <head>
+HEAD321, >, <html>, XHEAD, <head>
+
+{HEAD KOSONG}
+XHEAD, cHead, <head>,CHEAD,e
+
+{HEAD → TITLE}
+XHEAD,title,<head>,TITLE,<head>   
+
+TITLE, id, <head>, TITLE1, <head>
+TITLE, class, <head>, TITLE2, <head>
+TITLE, style, <head>, TITLE3, <head>
+TITLE, >, <head>, XTITLE, <title>
+
+TITLE1,>,<head>,XTITLE,<title>
+TITLE1,class,<head>,TITLE12,<head>
+TITLE1,style,<head>,TITLE13,<head>
+TITLE12,style,<head>,TITLE123,<head>
+TITLE12,>,<head>,XTITLE,<title>
+TITLE13,class,<head>,TITLE132,<head>
+TITLE13,>,<head>,XTITLE,<title>
+TITLE123,>,<head>,XTITLE,<title>
+TITLE132,><head>,XTITLE,<title>
+
+TITLE2, id, <head>, TITLE21, <head>
+TITLE2, style, <head>, TITLE23, <head>
+TITLE2, >, <head>, XTITLE, <title>
+TITLE21, style, <head>, TITLE213, <head>
+TITLE21, >, <head>, XTITLE, <title>
+TITLE23, id, <head>, TITLE231, <head>
+TITLE23, >, <head>, XTITLE, <title>
+TITLE213, >, <head>, XTITLE, <title>
+TITLE231, >, <head>, XTITLE, <title>
+
+TITLE3, id, <head>, TITLE31, <head>
+TITLE3, class, <head>, TITLE32, <head>
+TITLE3, >, <head>, XTITLE, <title>
+TITLE31, class, <head>, TITLE312, <head>
+TITLE31, >, <head>, XTITLE, <title>
+TITLE32, id, <head>, TITLE321, <head>
+TITLE32, >, <head>, XTITLE, <title>
+TITLE312, >, <head>, XTITLE, <title>
+TITLE321, >, <head>, XTITLE, <title>
+
+XTITLE,isi,<title>,CTITLE,<title>
+XTITLE, e, <title>,TITLE<titile>
+XTITLE,cTitle,<title>,CTITLE,e
+
+CTITLE, cHead,<head>,CHEAD,e
+
+{HEAD - TITLE - SCRIPT}
+CTITLE,  script , <head>,SCRIPT, <head>
+
+{HEAD - SCRIPT}
+
+XHEAD, script, <head>,SCRIPT, <head>
+SCRIPT, id, <head>, SCRIPT1, <head>
+SCRIPT, class, <head>, SCRIPT2, <head>
+SCRIPT, style, <head>, SCRIPT3, <head>
+SCRIPT,src,<head>,SCRIPT4,<head>
+SCRIPT, >, <head>, XSCRIPT, <script>
+
+SCRIPT1, >, <head>, XSCRIPT, <script>
+SCRIPT1, class, <head>, SCRIPT12, <head>
+SCRIPT1, style, <head>, SCRIPT13, <head>
+SCRIPT12, style, <head>, SCRIPT123, <head>
+SCRIPT12, src,  <head>, SCRIPT124, <head>
+SCRIPT12, >, <head>, XSCRIPT, <script>
+SCRIPT13, class, <head>, SCRIPT132, <head>
+SCRIPT13, src, <head>, SCRIPT134, <head>
+SCRIPT13, >, <head>, XSCRIPT, <script>
+SCRIPT14, class,<head>,SCRIPT142,<head>
+SCRIPT14,style,<head>,SCRIPT143,<head>
+SCRIPT14,>,<head>,XSCRIPT,<script>
+SCRIPT123,src,<head>,SCRIPT1234,<head>
+SCRIPT123, >, <head>, XSCRIPT, <script>
+SCRIPT124, style, <head>, SCRIPT1243, <head>
+SCRIPT124, > , <head>, XSCRIPT, <script>
+SCRIPT132, src, <head> SCRIPT1324, <head>
+SCRIPT132, >,<head>, XSCRIPT, <script>
+SCRIPT134, class, <head> SCRIPT1342, <head> 
+SCRIPT134, >, <head> XSCRIPT, <script> 
+SCRIPT142, style, <head>, SCRIPT1423, <head>
+SCRIPT142, > , <head>, XSCRIPT, <script>
+SCRIPT143, class , <head>, SCRIPT1432,<head>
+SCRIPT143, > , <head>, XSCRIPT, <script>
+SCRIPT1234, > ,  <head>, XSCRIPT, <script>
+SCRIPT1243, >,<head>, XSCRIPT, <script>
+
+SCRIPT1324, >, <head>, XSCRIPT, <script>
+SCRIPT1342, >, <head>, XSCRIPT, <script>
+SCRIPT1423, >, <head>, XSCRIPT, <script>
+SCRIPT1432, >, <head>, XSCRIPT, <script>
+
+SCRIPT2, >, <head>, XSCRIPT, <script>
+SCRIPT2, id, <head>, SCRIPT21, <head>
+SCRIPT2, style, <head>, SCRIPT23, <head>
+SCRIPT21, style, <head>, SCRIPT213, <head>
+SCRIPT21, src,  <head>, SCRIPT214, <head>
+SCRIPT21, >, <head>, XSCRIPT, <script>
+SCRIPT23, id, <head>, SCRIPT231, <head>
+SCRIPT23, src, <head>, SCRIPT234, <head>
+SCRIPT23, >, <head>, XSCRIPT, <script>
+SCRIPT24, id,<head>,SCRIPT241,<head>
+SCRIPT24,style,<head>,SCRIPT243,<head>
+SCRIPT24,>,<head>,XSCRIPT,<script>
+SCRIPT213,src,<head>,SCRIPT2134,<head>
+SCRIPT213, >, <head>, XSCRIPT, <script>
+SCRIPT214, style, <head>, SCRIPT2143, <head>
+SCRIPT214, > , <head>, XSCRIPT, <script>
+SCRIPT231, src, <head> SCRIPT2314, <head>
+SCRIPT231, >,<head>, XSCRIPT, <script>
+SCRIPT234, id, <head> SCRIPT2341, <head> 
+SCRIPT234, >, <head> XSCRIPT, <script> 
+SCRIPT241, style, <head>, SCRIPT2413, <head>
+SCRIPT241, > , <head>, XSCRIPT, <script>
+SCRIPT243, id , <head>, SCRIPT2431,<head>
+SCRIPT243, > , <head>, XSCRIPT, <script>
+SCRIPT2134, > ,  <head>, XSCRIPT, <script>
+SCRIPT2143, >,<head>, XSCRIPT, <script>
+SCRIPT2314, >, <head>, XSCRIPT, <script>
+SCRIPT2341, >, <head>, XSCRIPT, <script>
+SCRIPT2413, >, <head>, XSCRIPT, <script>
+SCRIPT2431, >, <head>, XSCRIPT, <script>
+
+
+
+SCRIPT3, >, <head>, XSCRIPT, <script>
+SCRIPT3, id, <head>, SCRIPT31, <head>
+SCRIPT3, class, <head>, SCRIPT32, <head>
+SCRIPT31, class, <head>, SCRIPT312, <head>
+SCRIPT31, src,  <head>, SCRIPT314, <head>
+SCRIPT31, >, <head>, XSCRIPT, <script>
+SCRIPT32, id, <head>, SCRIPT321, <head>
+SCRIPT32, src, <head>, SCRIPT324, <head>
+SCRIPT32, >, <head>, XSCRIPT, <script>
+SCRIPT34, id,<head>,SCRIPT341,<head>
+SCRIPT34,class,<head>,SCRIPT342,<head>
+SCRIPT34,>,<head>,XSCRIPT,<script>
+SCRIPT312,src,<head>,SCRIPT3124,<head>
+SCRIPT312, >, <head>, XSCRIPT, <script>
+SCRIPT314, class, <head>, SCRIPT3142, <head>
+SCRIPT314, > , <head>, XSCRIPT, <script>
+SCRIPT321, src, <head> SCRIPT3214, <head>
+SCRIPT321, >,<head>, XSCRIPT, <script>
+SCRIPT324, id, <head> SCRIPT3241, <head> 
+SCRIPT324, >, <head> XSCRIPT, <script> 
+SCRIPT341, class, <head>, SCRIPT3412, <head>
+SCRIPT341, > , <head>, XSCRIPT, <script>
+SCRIPT342, id , <head>, SCRIPT3421,<head>
+SCRIPT342, > , <head>, XSCRIPT, <script>
+SCRIPT3124, > ,  <head>, XSCRIPT, <script>
+SCRIPT3142, >,<head>, XSCRIPT, <script>
+SCRIPT3214, >, <head>, XSCRIPT, <script>
+SCRIPT3241, >, <head>, XSCRIPT, <script>
+SCRIPT3412, >, <head>, XSCRIPT, <script>
+SCRIPT3421, >, <head>, XSCRIPT, <script>
+
+
+
+SCRIPT4, >, <head>, XSCRIPT, <script>
+SCRIPT4, id, <head>, SCRIPT41, <head>
+SCRIPT4, class, <head>, SCRIPT42, <head>
+SCRIPT41, class, <head>, SCRIPT412, <head>
+SCRIPT41, style,  <head>, SCRIPT413, <head>
+SCRIPT41, >, <head>, XSCRIPT, <script>
+SCRIPT42, id, <head>, SCRIPT421, <head>
+SCRIPT42, style, <head>, SCRIPT423, <head>
+SCRIPT42, >, <head>, XSCRIPT, <script>
+SCRIPT43, id,<head>,SCRIPT431,<head>
+SCRIPT43,class,<head>,SCRIPT432,<head>
+SCRIPT43,>,<head>,XSCRIPT,<script>
+SCRIPT412,style,<head>,SCRIPT4123,<head>
+SCRIPT412, >, <head>, XSCRIPT, <script>
+SCRIPT413, class, <head>, SCRIPT4132, <head>
+SCRIPT413, > , <head>, XSCRIPT, <script>
+SCRIPT421, style, <head> SCRIPT4213, <head>
+SCRIPT421, >,<head>, XSCRIPT, <script>
+SCRIPT423, id, <head> SCRIPT4231, <head> 
+SCRIPT423, >, <head> XSCRIPT, <script> 
+SCRIPT431, class, <head>, SCRIPT4312, <head>
+SCRIPT431, > , <head>, XSCRIPT, <script>
+SCRIPT432, id , <head>, SCRIPT4321,<head>
+SCRIPT432, > , <head>, XSCRIPT, <script>
+SCRIPT4123, > ,  <head>, XSCRIPT, <script>
+SCRIPT4132, >,<head>, XSCRIPT, <script>
+SCRIPT4213, >, <head>, XSCRIPT, <script>
+SCRIPT4231, >, <head>, XSCRIPT, <script>
+SCRIPT4312, >, <head>, XSCRIPT, <script>
+SCRIPT4321, >, <head>, XSCRIPT, <script>
+
+
+XSCRIPT, cScript, <script>,CSCRIPT,e
+CSCRIPT,cHead,<head>,CHEAD, e
+
+{HEAD - SCRIPT - TITLE}
+
+CSCRIPT, title, <head>,TITLE,<head>
+
+{HEAD - LINK}
+XHEAD, link, <head>,LINK,<link>
+
+LINK, id, <link>, LINK1, <link>
+LINK, class, <link>, LINK2, <link>
+LINK, style, <link>, LINK3, <link>
+
+LINK1, >, <link>, XLINK, <link>
+LINK1, class, <link>, LINK12, <link>
+LINK1, style, <link>, LINK13, <link>
+LINK12, style, <link>, LINK123, <link>
+LINK12, >, <link>, XLINK, <link>
+LINK13, class, <link>, LINK132, <link>
+LINK13, >, <link>, XLINK, <link>
+LINK123, >, <link>, XLINK, <link>
+LINK132, ><link>, XLINK, <link>
+
+LINK2, id, <link>, LINK21, <link>
+LINK2, style, <link>, LINK23, <link>
+LINK2, >, <link>, XLINK, <link>
+LINK21, style, <link>, LINK213, <link>
+LINK21, >, <link>, XLINK, <link>
+LINK23, id, <link>, LINK231, <link>
+LINK23, >, <link>, XLINK, <link>
+LINK213, >, <link>, XLINK, <link>
+LINK231, >, <link>, XLINK, <link>
+
+LINK3, id, <link>, LINK31, <link>
+LINK3, class, <link>, LINK32, <link>
+LINK3, >, <link>, XLINK, <link>
+LINK31, class, <link>, LINK312, <link>
+LINK31, >, <link>, XLINK, <link>
+LINK32, id, <link>, LINK321, <link>
+LINK32, >, <link>, XLINK, <link>
+LINK312, >, <link>, XLINK, <link>
+LINK321, >, <link>, XLINK, <link>
+
+
+
+
+
+
+
+                                             
