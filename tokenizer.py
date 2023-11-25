@@ -1,7 +1,7 @@
 import re
 
 def tokenize_html_from_file(file_path):
-    with open(file_path, 'r') as file:
+    with open(file_path, 'r', encoding='utf-8') as file:
         input_str = file.read()
         return tokenize_html(input_str)
 
@@ -71,3 +71,4 @@ def tokenize_html(input_str):
                     row_count += 1  # Increment row counter for each newline
                 input_str = input_str[1:]
     return tokens
+

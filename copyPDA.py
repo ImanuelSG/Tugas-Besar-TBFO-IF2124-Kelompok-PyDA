@@ -23,44 +23,56 @@ class PDA:
             f"Transitions: {self.transitions}\n"
         )
 
-    def simulate(self, input_string, current_state=None, stack=None, rowrightnow=1):
-        if current_state is None:
-            current_state = self.initial_state
-        if stack is None:
-            stack = [self.initial_stack]  
-        
+    def simulate(self, input_string):
+        stack = [self.initial_stack]
+        current_states = {self.initial_state}
+        row_right_now = 1
 
         for symbol in input_string:
             if symbol == "nl":
-                rowrightnow += 1
-            elif (current_state, symbol, stack[-1]) in self.transitions:
-                branches = self.transitions[(current_state,symbol,stack[-1])]
-                for transition in branches:
-                    next_state, push_stack = transition
-                    prev = stack.pop()
-                    new_stack = list(stack)
-                    if push_stack != "e":
-                        if push_stack.startswith('<') and push_stack.endswith('>'):
-                            push_stack = push_stack[1:-1]  # Remove the angle brackets
-                            substrings = push_stack.split('><')
-                            for substring in reversed(substrings):
-                                if substring == "%":
-                                    new_stack.append(prev)
-                                else:
-                                    new_stack.append('<' + substring + '>')
-                        else:
-                            if push_stack == "<%>":
-                                new_stack.append(prev)
-                            else :
-                                new_stack.append(push_stack)
-                if self.simulate(input_string,next_state,new_stack,rowrightnow):
-                    return True
+                row_right_now += 1
             else:
-                print(f"Error: No transition for state {current_state}, symbol {symbol}, stack {stack[-1]} at row {rowrightnow}")
-                return False
-        print (stack)
-        print (rowrightnow)
-        return current_state in self.accepting_states and not stack
+                next_states = set()
+                for current_state in current_states:
+                    matching_transitions = self.transitions.get((current_state, symbol, stack[-1]), [])
+    
+                    if not matching_transitions:
+                        matching_transitions = self.transitions.get((current_state, symbol, "<%>"), [])
+
+                    for transition in matching_transitions:
+                        next_state_t, push_stack = transition
+                        next_states.add(next_state_t)
+
+                        prev = stack.pop()
+                        # new_stack = list(stack)
+                        if push_stack != "e":
+                            if push_stack.startswith('<') and push_stack.endswith('>'):
+                                push_stack = push_stack[1:-1]  # Remove the angle brackets
+                                substrings = push_stack.split('><')
+                                for substring in reversed(substrings):
+                                    if substring == "%":
+                                        stack.append(prev)
+                                    else:
+                                        stack.append('<' + substring + '>')
+                            else:
+                                if push_stack == "<%>":
+                                    stack.append(prev)
+                                else:
+                                    stack.append(push_stack)
+                        print(current_state,symbol,stack)
+
+                if not next_states:
+                    print(f"Error: No transition for current states {current_states}, symbol {symbol}, stack {stack[-1]} at row {row_right_now}")
+                    return False
+
+                current_states = next_states
+
+        print(stack)
+        print(row_right_now)
+        return any(state in self.accepting_states and not stack for state in current_states)
+
+   
+
 
 
 def extract_states(productions): #ini cuma buat mastiin apakah states yang ditulis di txt udah semua
@@ -110,6 +122,8 @@ def parse_file(filename):
 
     for line in lines[7:]:
         parts = line.split()
+        # if (len(parts) != 5):
+        #     print(parts)
         current_state, read_symbol, take_stack, next_state, add_stack = parts
         production = (next_state, add_stack)
 
@@ -134,9 +148,9 @@ def parse_file(filename):
         accepting_type=accept_condition
     )
 
-filename = "table.txt"
+filename = "testPDA.txt"
 parse_file(filename)
-tokens = tokenize_html_from_file("Test//table.html")
+tokens = tokenize_html_from_file("test.html")
 print (tokens)
 PDA.simulate(pda, tokens)
 

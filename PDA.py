@@ -122,9 +122,9 @@ def parse_file(filename):
         accepting_type=accept_condition
     )
 
-filename = "table.txt"
+filename = "testTable.txt"
 parse_file(filename)
-tokens = tokenize_html_from_file("Test//table.html")
-print (tokens)
+tokens = tokenize_html_from_file("C://Users//Angelica Gurning//Documents//Kuliah//TBFO//TUBEZ//Tugas-Besar-TBFO-IF2124-Kelompok-PyDA//test.html")
+# print (tokens)
 PDA.simulate(pda, tokens)
 

@@ -47,7 +47,7 @@ CTR th <tr> TH <tr>
 CTR td <tr> TD <tr>
 
 CTABLE ctable <table> XDIV e
-CTABLE ctable <table XDIV e
+CTABLE ctable <table> XDIV e
 
 
 
