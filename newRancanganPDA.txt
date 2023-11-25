@@ -200,8 +200,8 @@ XP strong <p> STRONG <p>
 XP small <p> SMALL <p>
 XP a <p> A <p>
 XP img <p> IMG <img><p>
-XP ch6 <p> XBODY e
-XP ch6 <p> XDIV e
+XP cp <p> XBODY e
+XP cp <p> XDIV e
 
 BR > <br> XH1 e
 BR > <br> XH2 e

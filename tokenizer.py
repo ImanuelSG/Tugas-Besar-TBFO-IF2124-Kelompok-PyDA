@@ -12,8 +12,7 @@ def tokenize_html_from_file(file_path):
 
 def tokenize_html(input_str):
     tag_pattern = re.compile(r'<\s*(\w+)\s*')  # to read the tag
-    attribute_pattern = re.compile(r'(\w+)\s*=\s*("[^"]*")')
-    
+    attribute_pattern = re.compile(r'(\w+)\s*=\s*("[^"]*"|”[^”]*”)')
     closetag_pattern = re.compile(r'</\s*(\w+)\s*>')
     # void_close = re.compile(r'/>')
 
@@ -37,13 +36,10 @@ def tokenize_html(input_str):
             value = attribute_match.group(2)
             if key == "method":
                 method_value = value.strip('"').strip()
-                tokens.append("method" + method_value)
-            elif key == "action":
-                action_value = value.strip('"').strip()
-                tokens.append("action" + action_value)
+                tokens.append("method" + method_value.lower())
             elif key == "type":
                 type_value = value.strip('"').strip()
-                tokens.append("type" + type_value)
+                tokens.append("type" + type_value.lower())
             else:
                 tokens.append(key)
             input_str = input_str[attribute_match.end():]
@@ -53,6 +49,7 @@ def tokenize_html(input_str):
             input_str = input_str[closetag_match.end():]
         elif comment.match(input_str):
             comment_match = comment.match(input_str)
+            tokens.append("comment")
             input_str = input_str[comment_match.end():]
         elif closebracket.match(input_str):
             tokens.append(">")

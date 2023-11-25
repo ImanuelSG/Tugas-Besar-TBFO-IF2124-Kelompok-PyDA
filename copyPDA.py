@@ -45,6 +45,7 @@ class PDA:
                     if not matching_transitions:
                         matching_transitions = self.transitions.get((current_state, symbol, "<%>"), [])
 
+                    
                     for transition in matching_transitions:
                         next_state_t, push_stack = transition
                         next_states.add(next_state_t)
