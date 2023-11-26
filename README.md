@@ -11,7 +11,8 @@ Tugas Besar IF 2124 Institut Teknologi Bandung Teori Bahasa Formal dan Otomata -
 4. [Cara Menjalankan](#cara-menjalankan)
    - [Prasyarat](#prasyarat)
    - [Klon Repository](#klon-repository)
-   - [Run Dengan Format](#Run sesuai format (python PDA.py {namafiletxtpda} {path-ke-filehtml}))
+   - [Run Dengan Format yang ada](#2-run-sesuai-format-python-pdapy-namafiletxtpda-path-ke-filehtml)
+   - [Tunggu Hasil Keluar](#3-tunggu-hasil-keluar-antara-accepted-dan-rejected)
    
 
 ## Informasi Umum
@@ -20,11 +21,11 @@ Dalam pengembangan program, tahap parsing merupakan hal yang krusial di mana sin
 Baik dalam bahasa yang diinterpretas maupun dikompilasi, pemeriksaan sintaks adalah praktik standar. Perbedaannya terletak pada langkah-langkah selanjutnya setelah proses pemeriksaan. Dalam suatu kompiler, setelah parsing, program diubah menjadi bentuk yang dapat dieksekusi, sementara dalam suatu interpreter, pemeriksaan sintaks dan eksekusi terjadi secara langsung tanpa langkah kompilasi tambahan.
 
 ## Penulis:
-| NIM      | Nama                           | Pembagian Tugas  |
-| -------- | -------------------------------| ---------------- |
-| 13522048 | Angelica Kierra Ninta Gurning  | Diagram state    |
-| 13522058 | Imanuel Sebastian Girsang      | PDA              |
-| 13522060 | Andhita Naura Hariyanto        | Tokenizer, Bonus |
+| NIM      | Nama                           | Pembagian Tugas                                            |
+| -------- | -------------------------------| ---------------------------------------------------------- |
+| 13522048 | Angelica Kierra Ninta Gurning  | Membuat PDA, menggambar PDA, Laporan                       |
+| 13522058 | Imanuel Sebastian Girsang      | Membuat tokenizer, membuat PDA Checker di python, Laporan  |
+| 13522060 | Andhita Naura Hariyanto        | Membuat PDA, menggambar PDA, Laporan                       |
 
 ## Teknologi yang Digunakan
 - Python 3.10.8
@@ -57,3 +58,4 @@ git clone https://github.com/ImanuelSG/Tugas-Besar-TBFO-IF2124-Kelompok-PyDA.git
 python PDA.py PDA.txt Test/tc11.html
 ```
 
+### 3. Tunggu Hasil Keluar antara Accepted dan Rejected
