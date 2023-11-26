@@ -386,7 +386,6 @@ CTH e <th> XTH <th>
 CTH e <td> XTD <td>
 CTH e <tr> XTR <tr>
 CTH comment <%> CTH <%>
-CTH 
 CTABLE e <body> XBODY <body>
 CTABLE e <div> XDIV <div>
 CTABLE e <form> XFORM <form>
