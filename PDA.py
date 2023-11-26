@@ -87,6 +87,7 @@ class PDA:
                 #     rowrightnow += 1
 
                 print()
+                wajib = ['XHTML', 'XHEAD', 'XTABLE']
                 print(f"Oh No!, your file {Style.BRIGHT}{Fore.RED}{Fore.YELLOW}{html_file}{Style.RESET_ALL} is {Style.BRIGHT}{Fore.RED}REJECTED{Style.RESET_ALL}")
                 print(f"Error: No transition found for current state = {current_state}, symbol = {symbol}, and top of stack = {stack[-1]}")
                 print(f"at row {rowrightnow} - {Style.BRIGHT}{Fore.RED}{arrlines[rowrightnow-1].lstrip()}{Style.RESET_ALL}", end = "")
@@ -104,7 +105,13 @@ class PDA:
                         print (f"Syntax Error: No required attribute {Style.BRIGHT}{Fore.RED}src{Style.RESET_ALL} for tag img.")
                     else:
                         print (f"Syntax Error: No required attribute {Style.BRIGHT}{Fore.RED}Rel{Style.RESET_ALL} for tag link.")
-                
+                elif (current_state in wajib):
+                    if (current_state == 'XHTML'):
+                        print (f"Syntax Error: Expected {Style.BRIGHT}{Fore.RED}head{Style.RESET_ALL} after tag html.")
+                    elif (current_state == 'XHEAD'):
+                        print (f"Syntax Error: Expected {Style.BRIGHT}{Fore.RED}body{Style.RESET_ALL} after tag head.")
+                    else:
+                        print (f"Syntax Error: Expected {Style.BRIGHT}{Fore.RED}tr{Style.RESET_ALL} after tag table.")
                 elif (current_state.startswith('X') and stack[-1] == ('<'+current_state[1:].lower()+'>')):
                 
                     print (f"Syntax Error: {Style.BRIGHT}{Fore.RED}{'<'+current_state[1:].lower()+'>'}{Style.RESET_ALL} is not closed ")
