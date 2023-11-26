@@ -1,30 +1,3 @@
-def extract_input_symbols(productions):
-    input_symbols = set()
-    for state, transitions in productions.items():
-        for transition in transitions:
-            read_symbol = transition[0]
-            if read_symbol not in input_symbols:
-                input_symbols.add(read_symbol)
-
-    return input_symbols
-
-def extract_stack_symbols(productions):
-    stack_symbols = set()
-    for state, transitions in productions.items():
-        for transition in transitions:
-            take_from_stack = transition[1]
-            if take_from_stack.startswith('<') and take_from_stack.endswith('>'):
-                stack_symbols.add(take_from_stack)
-    return stack_symbols
-
-def extract_states(productions):
-    states = set()
-    for state, transitions in productions.items():
-        states.add(state)
-
-
-    return states
-
 def parse_file(filename):
     global productions
     global start_state

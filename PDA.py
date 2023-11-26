@@ -1,6 +1,5 @@
 import argparse
 from colorama import Fore, Style
-from parsefile import *
 from tokenizer import *
 
 class PDA:
@@ -32,7 +31,7 @@ class PDA:
         rowrightnow = 1
         
         for symbol in input_string:
-            print (current_state)
+            
             if symbol == "nl":
                 rowrightnow += 1 
             elif (current_state, symbol, stack[-1]) in self.transitions: #ini buat mastiin apakah ada transisi yang sesuai
@@ -93,34 +92,8 @@ class PDA:
                 print(f"at row {rowrightnow} - {Style.BRIGHT}{Fore.RED}{arrlines[rowrightnow-1].lstrip()}{Style.RESET_ALL}")
                 return False
 
-        print (f"Congrats! your file {Style.BRIGHT}{Fore.RED}{html_file}{Style.RESET_ALL} is {Style.BRIGHT}{Fore.GREEN}ACCEPTED{Style.RESET_ALL}")
+        print (f"Congrats! your file {Style.BRIGHT}{Fore.RED}{Fore.YELLOW}{html_file}{Style.RESET_ALL} is {Style.BRIGHT}{Fore.GREEN}ACCEPTED{Style.RESET_ALL}")
         
-
-def extract_states(productions): #ini cuma buat mastiin apakah states yang ditulis di txt udah semua
-    states = set()
-    for state, transitions in productions.items():
-        states.add(state)
-    return states
-
-def extract_input_symbols(productions): #ini cuma buat mastiin apakah input simbol yang ditulis di txt udah semua
-    input_symbols = set()
-    for state, transitions in productions.items():
-        for transition in transitions:
-            read_symbol = transition[0]
-            if read_symbol not in input_symbols:
-                input_symbols.add(read_symbol)
-    return input_symbols
-
-def extract_stack_symbols(productions): #ini cuma buat mastiin apakah stack symbol yang ditulis di txt udah semua
-    stack_symbols = set()
-    for state, transitions in productions.items():
-        for transition in transitions:
-            take_from_stack = transition[1]
-            if take_from_stack.startswith('<') and take_from_stack.endswith('>'):
-                stack_symbols.add(take_from_stack)
-
-    return stack_symbols
-
 def parse_file(filename):
     global productions
     global start_state
@@ -152,14 +125,10 @@ def parse_file(filename):
             productions[key] = []
         productions[key].append(tuple(production))
 
-    extracted_input_symbols = extract_input_symbols(productions)
-    extracted_stack_symbols = extract_stack_symbols(productions)
-    extracted_states = extract_states(productions)
-
     pda = PDA(
-        states=extracted_states,
-        input_alphabet=extracted_input_symbols,
-        stack_alphabet=extracted_stack_symbols,
+        states=total_states,
+        input_alphabet=input_symbols,
+        stack_alphabet=stack_symbols,
         initial_state=start_state,
         accepting_states=accepting_states,
         transitions=productions,
@@ -187,8 +156,10 @@ def main():
 
     parse_file(txt_file)
     tokens = tokenize_html_from_file(html_file)
-    print (tokens)
+   
     PDA.simulate(pda, tokens)
+    
+
 
 if __name__ == '__main__':
     main()
