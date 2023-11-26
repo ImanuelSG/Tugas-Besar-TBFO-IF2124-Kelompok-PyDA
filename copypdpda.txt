@@ -27,7 +27,6 @@ TITLE style <head> TITLE <head>
 TITLE > <head> XTITLE <title><head>
 XTITLE string <title> XTITLE <title>
 XTITLE comment <title> XTITLE <title>
-XTITLE e <title> XTITLE <title>
 XTITLE ctitle <title> XHEAD e
 SCRIPT id <%> SCRIPT <%>
 SCRIPT class <%> SCRIPT <%>
@@ -345,7 +344,7 @@ XTR comment <tr> XTR <tr>
 TH id <tr> TH <tr>
 TH class <tr> TH <tr>
 TH style <tr> TH <tr>
-TH > <tr> XTH <th><tr>
+TH > <%> XTH <th><%>
 XTH string <th> XTH <th>
 XTH comment <th> XTH <th>
 XTH em <th> EM <th>
@@ -360,7 +359,7 @@ XTH cth <th> CTH e
 TD id <tr> TD <tr>
 TD class <tr> TD <tr>
 TD style <tr> TD <tr>
-TD > <tr> XTD <td><tr>
+TD > <%> XTD <%><tr>
 XTD string <td> XTD <td>
 XTD comment <td> XTD <td>
 XTD em <td> EM <td>

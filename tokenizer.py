@@ -74,4 +74,4 @@ def tokenize_html(input_str):
                 input_str = input_str[1:]
     return tokens
 
-tokenize_html_from_file("Test/table.html")
+# tokenize_html_from_file("Test/table.html")

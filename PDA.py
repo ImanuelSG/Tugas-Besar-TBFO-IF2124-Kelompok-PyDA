@@ -80,11 +80,11 @@ class PDA:
 
             else:
                 
-                print (stack)
-                print (input_symbols)
-                if ((current_state, _, stack[-1]) in self.transitions for _ in input_symbols):
+                # print (stack)
+                # print (input_symbols)
+                # if ((current_state, _, stack[-1]) in self.transitions for _ in input_symbols):
                     # Your code here
-                    rowrightnow += 1
+                    # rowrightnow += 1
                 print(f"Error: No transition for state {current_state}, symbol {symbol}, stack {stack[-1]} at row {rowrightnow} - {arrlines[rowrightnow-1]}")
                 
                 return False
