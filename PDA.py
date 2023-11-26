@@ -93,9 +93,17 @@ class PDA:
                 print(f"at row {rowrightnow} - {Style.BRIGHT}{Fore.RED}{arrlines[rowrightnow-1].lstrip()}{Style.RESET_ALL}", end = "")
                 wajib = ['XHTML', 'XHEAD']
                 if(symbol not in input_symbols):
-                    print (f"Syntax Error: {Style.BRIGHT}{Fore.RED}{symbol}{Style.RESET_ALL} is not recognized as an input alphabet")
+                    if symbol.startswith("method"):
+                        symbol = symbol[len("method"):]
+                        print (f"Syntax Error: {Style.BRIGHT}{Fore.RED}{symbol}{Style.RESET_ALL} is not a valid method")
+                    elif symbol.startswith("type"):
+                        symbol = symbol[len("type"):]
+                        print (f"Syntax Error: {Style.BRIGHT}{Fore.RED}{symbol}{Style.RESET_ALL} is not a valid type")
+                    else:
+                        print (f"Syntax Error: {Style.BRIGHT}{Fore.RED}{symbol}{Style.RESET_ALL} is not recognized as an input symbol")
                 
                 elif (current_state.startswith('X') and stack[-1] == ('<'+current_state[1:].lower()+'>')):
+                
                     print (f"Syntax Error: {Style.BRIGHT}{Fore.RED}{'<'+current_state[1:].lower()+'>'}{Style.RESET_ALL} is not closed ")
                 
                 
