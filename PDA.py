@@ -89,7 +89,11 @@ class PDA:
                 print()
                 print(f"Oh No!, your file {Style.BRIGHT}{Fore.RED}{Fore.YELLOW}{html_file}{Style.RESET_ALL} is {Style.BRIGHT}{Fore.RED}REJECTED{Style.RESET_ALL}")
                 print(f"Error: No transition found for current state = {current_state}, symbol = {symbol}, and top of stack = {stack[-1]}")
-                print(f"at row {rowrightnow} - {Style.BRIGHT}{Fore.RED}{arrlines[rowrightnow-1].lstrip()}{Style.RESET_ALL}")
+
+                print(f"at row {rowrightnow} - {Style.BRIGHT}{Fore.RED}{arrlines[rowrightnow-1].lstrip()}{Style.RESET_ALL}", end = "")
+                if(symbol not in input_symbols):
+                    print (f"Error: {Style.BRIGHT}{Fore.RED}{symbol} is not recognized as an input alphabet")
+                else if (symbol == "img")
                 return False
 
         print (f"Congrats! your file {Style.BRIGHT}{Fore.RED}{Fore.YELLOW}{html_file}{Style.RESET_ALL} is {Style.BRIGHT}{Fore.GREEN}ACCEPTED{Style.RESET_ALL}")
@@ -119,7 +123,7 @@ def parse_file(filename):
         current_state, read_symbol, take_stack, next_state, add_stack = parts
         production = (next_state, add_stack)
 
-        key = (current_state, read_symbol, take_stack)  # Ini biar formatnya lebih enak
+        key = (current_state, read_symbol, take_stack)  # Ini biar formatnya lebih enak karena basically yang mendeskripsikan PDA itu currents state, read symbol, dan top of stack
 
         if key not in productions:
             productions[key] = []
@@ -147,7 +151,7 @@ def main():
     parser.add_argument('html_file', help='Path to the HTML file')
     args = parser.parse_args()
 
-    global txt_file,html_file
+    global html_file
     txt_file = args.txt_file
     html_file = args.html_file
 
