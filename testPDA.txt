@@ -312,6 +312,8 @@ XFORM input <form> INPUT <input><form>
 XFORM table <form> TABLE <form>
 XFORM cform <form> CFORM e
 XFORM string <form> XFORM <form>
+XFORM script <form> SCRIPT <form>
+XFORM link <form> LINK <link><form>
 XFORM comment <form> XFORM <form>
 INPUT id <input> INPUT <input>
 INPUT class <input> INPUT <input>
