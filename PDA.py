@@ -91,9 +91,15 @@ class PDA:
                 print(f"Error: No transition found for current state = {current_state}, symbol = {symbol}, and top of stack = {stack[-1]}")
 
                 print(f"at row {rowrightnow} - {Style.BRIGHT}{Fore.RED}{arrlines[rowrightnow-1].lstrip()}{Style.RESET_ALL}", end = "")
+                wajib = ['XHTML', 'XHEAD']
                 if(symbol not in input_symbols):
-                    print (f"Error: {Style.BRIGHT}{Fore.RED}{symbol} is not recognized as an input alphabet")
-                # else if (symbol == "img")
+                    print (f"Syntax Error: {Style.BRIGHT}{Fore.RED}{symbol}{Style.RESET_ALL} is not recognized as an input alphabet")
+                
+                elif (current_state.startswith('X') and stack[-1] == ('<'+current_state[1:].lower()+'>')):
+                    print (f"Syntax Error: {Style.BRIGHT}{Fore.RED}{'<'+current_state[1:].lower()+'>'}{Style.RESET_ALL} is not closed ")
+                
+                
+                print()
                 return False
 
         print (f"Congrats! your file {Style.BRIGHT}{Fore.RED}{Fore.YELLOW}{html_file}{Style.RESET_ALL} is {Style.BRIGHT}{Fore.GREEN}ACCEPTED{Style.RESET_ALL}")
