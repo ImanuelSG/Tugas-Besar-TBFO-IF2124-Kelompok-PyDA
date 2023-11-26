@@ -386,6 +386,7 @@ CTH e <th> XTH <th>
 CTH e <td> XTD <td>
 CTH e <tr> XTR <tr>
 CTH comment <%> CTH <%>
+CTH 
 CTABLE e <body> XBODY <body>
 CTABLE e <div> XDIV <div>
 CTABLE e <form> XFORM <form>
@@ -446,6 +447,8 @@ CSTRONG e <h4> XH4 <h4>
 CSTRONG e <h5> XH5 <h5>
 CSTRONG e <h6> XH6 <h6>
 CSTRONG e <p> XP <p>
+CSTRONG e <th> XTH <th>
+CSTRONG e <td> XTD <td>
 CSTRONG e <body> XBODY <body>
 CSTRONG e <div> XDIV <div>
 CSTRONG e <form> XFORM <form>
@@ -457,6 +460,8 @@ CSMALL e <h4> XH4 <h4>
 CSMALL e <h5> XH5 <h5>
 CSMALL e <h6> XH6 <h6>
 CSMALL e <p> XP <p>
+CSMALL e <th> XTH <th>
+CSMALL e <td> XTD <td>
 CSMALL e <body> XBODY <body>
 CSMALL e <div> XDIV <div>
 CSMALL e <form> XFORM <form>
