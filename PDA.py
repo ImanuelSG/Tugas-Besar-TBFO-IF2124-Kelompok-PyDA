@@ -93,7 +93,7 @@ class PDA:
                 print(f"at row {rowrightnow} - {Style.BRIGHT}{Fore.RED}{arrlines[rowrightnow-1].lstrip()}{Style.RESET_ALL}", end = "")
                 if(symbol not in input_symbols):
                     print (f"Error: {Style.BRIGHT}{Fore.RED}{symbol} is not recognized as an input alphabet")
-                else if (symbol == "img")
+                # else if (symbol == "img")
                 return False
 
         print (f"Congrats! your file {Style.BRIGHT}{Fore.RED}{Fore.YELLOW}{html_file}{Style.RESET_ALL} is {Style.BRIGHT}{Fore.GREEN}ACCEPTED{Style.RESET_ALL}")
