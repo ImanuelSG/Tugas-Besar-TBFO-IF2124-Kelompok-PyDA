@@ -58,7 +58,10 @@ def tokenize_html(input_str):
         else:
             string_match = re.match(r'([^<>]+|\s+)', input_str)
             if string_match:
+                string_value = string_match.group(1)
                 tokens.append("string")
+                if ('\n' in string_value):
+                    tokens.append("nl")
                 input_str = input_str[string_match.end():]
             else:
                 if input_str[0] == '<' or input_str[0] == '>':
@@ -68,4 +71,3 @@ def tokenize_html(input_str):
                     row_count += 1  # Increment row counter for each newline
                 input_str = input_str[1:]
     return tokens
-

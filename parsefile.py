@@ -77,7 +77,3 @@ def parse_file(filename):
         print(f"{key}:", value)
 
     return 1
-
-# Example usage
-filename = "C://Users//Angelica Gurning//Documents//Kuliah//TBFO//TUBEZ//Tugas-Besar-TBFO-IF2124-Kelompok-PyDA//testTable.txt"
-parse_file(filename)

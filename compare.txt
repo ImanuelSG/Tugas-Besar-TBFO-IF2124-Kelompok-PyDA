@@ -1,5 +1,5 @@
 INIT HTML XHTML CHTML HEAD XHEAD CHEAD TITLE XTITLE SCRIPT XSCRIPT CSCRIPT LINK CLINK REL BODY XBODY CBODY H1 XH1 CH1 H2 XH2 CH2 H3 XH3 CH3 H4 XH4 CH4 H5 XH5 CH5 H6 XH6 CH6 P XP CP BR CBR EM XEM CEM B XB CB ABBR XABBR CABBR STRONG XSTRONG CSTRONG SMALL XSMALL CSMALL HR CHR DIV XDIV CDIV A XA CA IMG CIMG SRC BUTTON XBUTTON CBUTTON TYPE FORM XFORM CFORM METHOD ACTION INPUT CINPUT TABLE XTABLE CTABLE TR XTR CTR TH XTH CTH TD XTD CTD
-html chtml > id class style head chead title ctitle script cscript link e Rel href h1 ch1 h2 ch2 h3 ch3 h4 ch4 h5 ch5 h6 ch6 p cp br em cem abbr cabbr strong cstrong small csmall hr div cdiv a ca img button cbutton form cform action method table ctable body cbody b cb input alt src typesubmit typereset typebutton methodpost methodget typetext typepassword typeemail typenumber typecheckbox tr th td ctr cth ctd comment
+html chtml > id class style head chead title ctitle script cscript link e REL href h1 ch1 h2 ch2 h3 ch3 h4 ch4 h5 ch5 h6 ch6 p cp br em cem abbr cabbr strong cstrong small csmall hr div cdiv a ca img button cbutton form cform action method table ctable body cbody b cb input alt src typesubmit typereset typebutton methodpost methodget typetext typepassword typeemail typenumber typecheckbox tr th td ctr cth ctd comment
 <e> <zo> <html> <head> <body> <title> <script> <link> <%>
 INIT
 <e> 
@@ -37,7 +37,7 @@ SCRIPT src <%> SCRIPT <%>
 XSCRIPT string <script> XSCRIPT <script>
 XSCRIPT comment <script> XSCRIPT <script>
 XSCRIPT cscript <script> CSCRIPT e
-LINK Rel <link> REL <link>
+LINK REL <link> REL <link>
 LINK href <link> LINK <link>
 LINK id <link> LINK <link>
 LINK class <link> LINK <link>
@@ -345,10 +345,10 @@ XTR td <tr> TD <tr>
 XTR tr <tr> TR <tr>
 XTR ctr <tr> CTR e
 XTR comment <tr> XTR <tr>
-TH id <%> TH <%>
-TH class <%> TH <%>
-TH style <%> TH <%>
-TH > <%> XTH <th><%>
+TH id <tr> TH <tr>
+TH class <tr> TH <tr>
+TH style <tr> TH <tr>
+TH > <tr> XTH <th><tr>
 XTH string <th> XTH <th>
 XTH comment <th> XTH <th>
 XTH em <th> EM <th>
@@ -360,10 +360,10 @@ XTH th <th> TH <th>
 XTH td <th> TD <th>
 XTH tr <th> TR <th>
 XTH cth <th> CTH e
-TD id <%> TD <%>
-TD class <%> TD <%>
-TD style <%> TD <%>
-TD > <%> XTD <td><%>
+TD id <tr> TD <tr>
+TD class <tr> TD <tr>
+TD style <tr> TD <tr>
+TD > <tr> XTD <td><tr>
 XTD string <td> XTD <td>
 XTD comment <td> XTD <td>
 XTD em <td> EM <td>
@@ -377,7 +377,7 @@ XTD td <td> TD <td>
 XTD ctd <td> CTD e
 CTD e <td> XTD <td>
 CTD e <tr> XTR <tr>
-CTD e <th> XTH <th>
+CTD e <th> XTH <tr>
 CTD comment <%> CTD <%>
 CTR e <tr> XTR <tr>
 CTR e <td> XTD <td>

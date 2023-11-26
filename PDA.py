@@ -1,3 +1,6 @@
+import argparse
+from colorama import Fore, Style
+from parsefile import *
 from tokenizer import *
 
 class PDA:
@@ -29,30 +32,29 @@ class PDA:
         rowrightnow = 1
         
         for symbol in input_string:
-            print(current_state)
+            print (current_state)
             if symbol == "nl":
-                rowrightnow += 1
-            elif (current_state, symbol, stack[-1]) in self.transitions:
-                next_state, push_stack = self.transitions[(current_state, symbol, stack[-1])][0]
+                rowrightnow += 1 
+            elif (current_state, symbol, stack[-1]) in self.transitions: #ini buat mastiin apakah ada transisi yang sesuai
+                next_state, push_stack = self.transitions[(current_state, symbol, stack[-1])][0]#ini buat move to the next state dan push stack
                 stack.pop()
                 if push_stack != "e":
                     if push_stack.startswith('<') and push_stack.endswith('>'):
-                        push_stack = push_stack[1:-1]  # Remove the angle brackets
+                        push_stack = push_stack[1:-1]  #ini buat handle kalau dia ada dua push misal <br><body>
                         substrings = push_stack.split('><')
                         for substring in reversed(substrings):
                             stack.append('<' + substring + '>')
                     else:
                         stack.append(push_stack)
                 current_state = next_state
-            elif (current_state, symbol, "<%>") in self.transitions:
+            elif (current_state, symbol, "<%>") in self.transitions: #ini buat handle top of stack any
                 next_state, push_stack = self.transitions[(current_state, symbol, "<%>")][0]
-                prev = stack.pop()
-                
+                prev = stack.pop()#simpen dia top of stacknya apa sebenernya
                 if push_stack != "e":
                     if push_stack.startswith('<') and push_stack.endswith('>'):
-                        push_stack = push_stack[1:-1]  # Remove the angle brackets
+                        push_stack = push_stack[1:-1]  
                         substrings = push_stack.split('><')
-                        for substring in reversed(substrings):
+                        for substring in reversed(substrings):#push 
                             if (substring == "%"):
                                 stack.append(prev)
                             else:
@@ -77,20 +79,22 @@ class PDA:
                 current_state = next_state
                 input_string.insert(0, symbol)
                 
-
             else:
+                # print (stack)
+                # print (input_symbols)
                 
-                print (stack)
-                print (input_symbols)
-                if ((current_state, _, stack[-1]) in self.transitions for _ in input_symbols):
-                    # Your code here
-                    rowrightnow += 1
-                print(f"Error: No transition for state {current_state}, symbol {symbol}, stack {stack[-1]} at row {rowrightnow} - {arrlines[rowrightnow-1]}")
-                
+                # if (symbol not in input_symbols):
+                    
+                #     rowrightnow += 1
+
+                print()
+                print(f"Oh No!, your file {Style.BRIGHT}{Fore.RED}{Fore.YELLOW}{html_file}{Style.RESET_ALL} is {Style.BRIGHT}{Fore.RED}REJECTED{Style.RESET_ALL}")
+                print(f"Error: No transition found for current state = {current_state}, symbol = {symbol}, and top of stack = {stack[-1]}")
+                print(f"at row {rowrightnow} - {Style.BRIGHT}{Fore.RED}{arrlines[rowrightnow-1].lstrip()}{Style.RESET_ALL}")
                 return False
+
+        print (f"Congrats! your file {Style.BRIGHT}{Fore.RED}{html_file}{Style.RESET_ALL} is {Style.BRIGHT}{Fore.GREEN}ACCEPTED{Style.RESET_ALL}")
         
-        print ("Omaigad jalan")
-        return current_state in self.accepting_states and not stack
 
 def extract_states(productions): #ini cuma buat mastiin apakah states yang ditulis di txt udah semua
     states = set()
@@ -168,16 +172,25 @@ def lines_from_file(file_path):
         input_str = file.readlines()
     return input_str
 
+def main():
+    parser = argparse.ArgumentParser(description='PDA Simulator')
+    parser.add_argument('txt_file', help='Path to the TXT file')
+    parser.add_argument('html_file', help='Path to the HTML file')
+    args = parser.parse_args()
 
-# txt = str(input("Masukkan nama file txt: "))
-html = str(input("Masukkan nama file html: "))
+    global txt_file,html_file
+    txt_file = args.txt_file
+    html_file = args.html_file
 
-global arrlines
-arrlines = lines_from_file("Test/"+ html)
+    global arrlines
+    arrlines = lines_from_file(html_file)
 
-parse_file("testPDA.txt")
-tokens = tokenize_html_from_file("Test/"+html)
-print (tokens)
-PDA.simulate(pda, tokens)
+    parse_file(txt_file)
+    tokens = tokenize_html_from_file(html_file)
+    print (tokens)
+    PDA.simulate(pda, tokens)
+
+if __name__ == '__main__':
+    main()
 
 
