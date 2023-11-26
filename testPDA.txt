@@ -1,5 +1,5 @@
 INIT HTML XHTML CHTML HEAD XHEAD CHEAD TITLE XTITLE SCRIPT XSCRIPT CSCRIPT LINK CLINK REL BODY XBODY CBODY H1 XH1 CH1 H2 XH2 CH2 H3 XH3 CH3 H4 XH4 CH4 H5 XH5 CH5 H6 XH6 CH6 P XP CP BR CBR EM XEM CEM B XB CB ABBR XABBR CABBR STRONG XSTRONG CSTRONG SMALL XSMALL CSMALL HR CHR DIV XDIV CDIV A XA CA IMG CIMG SRC BUTTON XBUTTON CBUTTON TYPE FORM XFORM CFORM METHOD ACTION INPUT CINPUT TABLE XTABLE CTABLE TR XTR CTR TH XTH CTH TD XTD CTD
-html chtml > id class style head chead title ctitle script cscript link e rel href h1 ch1 h2 ch2 h3 ch3 h4 ch4 h5 ch5 h6 ch6 p cp br c em cem abbr cabbr strong cstrong small csmall hr div cdiv a ca img button cbutton form cform action method table ctable body cbody b cb input alt src typesubmit typereset typebutton methodpost methodget typetext typepassword typeemail typenumber typecheckbox tr th td ctr cth ctd
+html chtml > id class style head chead title ctitle script cscript link e rel href h1 ch1 h2 ch2 h3 ch3 h4 ch4 h5 ch5 h6 ch6 p cp br em cem abbr cabbr strong cstrong small csmall hr div cdiv a ca img button cbutton form cform action method table ctable body cbody b cb input alt src typesubmit typereset typebutton methodpost methodget typetext typepassword typeemail typenumber typecheckbox tr th td ctr cth ctd comment
 <e> <zo> <html> <head> <body> <title> <script> <link> <%>
 INIT
 <e> 
