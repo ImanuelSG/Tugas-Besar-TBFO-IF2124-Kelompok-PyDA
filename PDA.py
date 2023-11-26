@@ -79,12 +79,6 @@ class PDA:
                 input_string.insert(0, symbol)
                 
             else:
-                # print (stack)
-                # print (input_symbols)
-                
-                # if (symbol not in input_symbols):
-                    
-                #     rowrightnow += 1
 
                 print()
                 wajib = ['XHTML', 'XHEAD', 'XTABLE']
