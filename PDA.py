@@ -89,9 +89,7 @@ class PDA:
                 print()
                 print(f"Oh No!, your file {Style.BRIGHT}{Fore.RED}{Fore.YELLOW}{html_file}{Style.RESET_ALL} is {Style.BRIGHT}{Fore.RED}REJECTED{Style.RESET_ALL}")
                 print(f"Error: No transition found for current state = {current_state}, symbol = {symbol}, and top of stack = {stack[-1]}")
-
                 print(f"at row {rowrightnow} - {Style.BRIGHT}{Fore.RED}{arrlines[rowrightnow-1].lstrip()}{Style.RESET_ALL}", end = "")
-                wajib = ['XHTML', 'XHEAD']
                 if(symbol not in input_symbols):
                     if symbol.startswith("method"):
                         symbol = symbol[len("method"):]
@@ -101,6 +99,11 @@ class PDA:
                         print (f"Syntax Error: {Style.BRIGHT}{Fore.RED}{symbol}{Style.RESET_ALL} is not a valid type")
                     else:
                         print (f"Syntax Error: {Style.BRIGHT}{Fore.RED}{symbol}{Style.RESET_ALL} is not recognized as an input symbol")
+                elif (current_state == "IMG" or current_state == "LINK"):
+                    if (current_state == "IMG"):
+                        print (f"Syntax Error: No required attribute {Style.BRIGHT}{Fore.RED}src{Style.RESET_ALL} for tag img.")
+                    else:
+                        print (f"Syntax Error: No required attribute {Style.BRIGHT}{Fore.RED}Rel{Style.RESET_ALL} for tag link.")
                 
                 elif (current_state.startswith('X') and stack[-1] == ('<'+current_state[1:].lower()+'>')):
                 
